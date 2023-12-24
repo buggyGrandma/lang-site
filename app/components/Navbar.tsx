@@ -4,7 +4,7 @@ import logo from '@/public/images/logo2.png'
 
 const Navbar: React.FC = () => {
   return (
-    <nav className="bg-[#212121] px-[6.5rem] pt-8 h-[750px]">
+    <nav className="bg-[#212121] px-[6.5rem] pt-8 h-[110px]">
       <div className="container mx-auto flex  items-center">
         <div className='w-[241px]'>
         <Link href="/" >
@@ -13,28 +13,28 @@ const Navbar: React.FC = () => {
         </div>
         <ul className="flex space-x-12">
           <li>
-            <Link href="/home" className="text-[#818181] pl-12 pr-14 font-iranSans">صفحه اصلی
+            <Link href="/home" className="text-[#818181] pl-12 pr-14 font-iranSans font-medium text-sm">صفحه اصلی
              
             </Link>
           </li>
           <li>
-            <Link href="/group-class" className="text-[#818181] font-iranSans">کلاس گروهی
+            <Link href="/group-class" className="text-[#818181] font-iranSans font-medium text-sm">کلاس گروهی
              
             </Link>
           </li>
           <li>
-            <Link href="/private-class" className="text-[#818181] font-iranSans">کلاس خصوصی
+            <Link href="/private-class" className="text-[#818181] font-iranSans font-medium text-sm">کلاس خصوصی
              
             </Link>
           </li>
          
           <li>
-            <Link href="/blog" className="text-[#818181] font-iranSans">وبلاگ
+            <Link href="/blog" className="text-[#818181] font-iranSans font-medium text-sm">وبلاگ
              
             </Link>
           </li>
           <li>
-            <Link href="/contact-us" className="text-[#818181] font-iranSans">تماس با ما
+            <Link href="/contact-us" className="text-[#818181] font-iranSans font-medium text-sm">تماس با ما
              
             </Link>
           </li>
