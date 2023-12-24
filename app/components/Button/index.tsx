@@ -1,10 +1,13 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { ColorList } from "./ColorList";
+import ArrowPrimary from "./ArrowPrimary";
+import ArrowSecondary from "./ArrowSecondary";
 
 interface Props {
   children: React.ReactNode;
-  size: "sm" | "md" | "lg";
+  arrowposition?: "left" | "right";
+  arrow?: boolean;
   color:
     | "secondary"
     | "textp"
@@ -17,17 +20,49 @@ interface Props {
     | "default2"
     | "error"
     | "disabled";
+  direction: "left" | "right" | "up" | "down";
 }
 
-const Button = ({ children, size, color }: Props) => {
-  const renderedSize =
-    size == "lg" ? "h-[52px]" : size == "md" ? "h-[40px]" : "h-[32px]";
+const Button = ({
+  children,
+  color,
+  direction,
+  arrowposition = "left",
+  arrow = false,
+}: Props) => {
   const renderedColor = ColorList.get(color);
+  const [arrowColor, setArrowcolor] = useState(renderedColor?.arrowColor);
   return (
     <button
+      onMouseEnter={() => setArrowcolor(renderedColor?.onHoverArrowColor)}
+      onMouseLeave={() => setArrowcolor(renderedColor?.arrowColor)}
       disabled={color === "disabled"}
-      className={`w-full ${renderedSize} ${renderedColor?.className} rounded-[8px] gap-[8px] flex justify-center items-center`}
+      className={`w-full h-full ${
+        renderedColor?.className
+      } rounded-[8px] gap-[8px] flex ${
+        arrowposition === "left" && "flex-row-reverse"
+      } justify-center items-center`}
     >
+      {arrow ? (
+        color === "primary2" ? (
+          <ArrowSecondary />
+        ) : (
+          <ArrowPrimary
+            direction={direction}
+            gradient={renderedColor?.gradient}
+            color={arrowColor!}
+          />
+        )
+      ) : null}
+      {/* {color === "primary2" ? (
+        <ArrowSecondary />
+      ) : (
+        <ArrowPrimary
+          direction={direction}
+          gradient={renderedColor?.gradient}
+          color={arrowColor!}
+        />
+      )} */}
       {children}
     </button>
   );
