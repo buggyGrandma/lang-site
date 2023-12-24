@@ -11,7 +11,7 @@ const EvaluationLayout = ({ children }: { children: React.ReactNode }) => {
           </div>
           <div>آزمون تعیین سطح</div>
         </div>
-        <div className="flex flex-col justify-center items-center bg-[#F8F8FB] h-[100vh]">
+        <div className="p-4 gap-4 flex flex-col justify-center items-center bg-[#F8F8FB] h-fit">
           {children}
         </div>
       </main>

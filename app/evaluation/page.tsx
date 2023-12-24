@@ -1,4 +1,5 @@
-import React from "react";
+import Button from "../components/Button";
+import Note from "./Note";
 import PictuerMD from "./PictuerMD";
 import PictureSM from "./PictureSM";
 
@@ -7,6 +8,19 @@ const Evaluation = () => {
     <>
       <PictuerMD />
       <PictureSM />
+      <div className="flex">
+        <p className="text-green-600">سطح زبانتو </p>
+        <p>مشخص کن!</p>
+      </div>
+      <Note />
+      <Note />
+      <Note />
+      <Note />
+      <div className="w-[325px]">
+        <Button color="secondary" size="lg">
+          شروع آزمون
+        </Button>
+      </div>
     </>
   );
 };
