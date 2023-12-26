@@ -21,6 +21,7 @@ interface Props {
     | "error"
     | "disabled";
   direction?: "left" | "right" | "up" | "down";
+  onClick?: () => void;
 }
 
 const Button = ({
@@ -29,11 +30,13 @@ const Button = ({
   direction = "down",
   arrowposition = "left",
   arrow = false,
+  onClick,
 }: Props) => {
   const renderedColor = ColorList.get(color);
   const [arrowColor, setArrowcolor] = useState(renderedColor?.arrowColor);
   return (
     <button
+      onClick={onClick && onClick}
       onMouseEnter={() => setArrowcolor(renderedColor?.onHoverArrowColor)}
       onMouseLeave={() => setArrowcolor(renderedColor?.arrowColor)}
       disabled={color === "disabled"}
