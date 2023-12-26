@@ -17,9 +17,7 @@ const Evaluation = () => {
       <Note />
       <Note />
       <div className="w-[325px] h-[64px]">
-        <Button color="secondary" direction="down">
-          شروع آزمون
-        </Button>
+        <Button color="secondary">شروع آزمون</Button>
       </div>
     </>
   );

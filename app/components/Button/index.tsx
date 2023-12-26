@@ -20,13 +20,13 @@ interface Props {
     | "default2"
     | "error"
     | "disabled";
-  direction: "left" | "right" | "up" | "down";
+  direction?: "left" | "right" | "up" | "down";
 }
 
 const Button = ({
   children,
   color,
-  direction,
+  direction = "down",
   arrowposition = "left",
   arrow = false,
 }: Props) => {
@@ -54,15 +54,6 @@ const Button = ({
           />
         )
       ) : null}
-      {/* {color === "primary2" ? (
-        <ArrowSecondary />
-      ) : (
-        <ArrowPrimary
-          direction={direction}
-          gradient={renderedColor?.gradient}
-          color={arrowColor!}
-        />
-      )} */}
       {children}
     </button>
   );
