@@ -9,7 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        iranSans: 'var(--font-iranSans)'
+        iranSans: 'var(--font-iranSans)',
+        iranSansBold: 'var(--font-iranSansBold)',
+        roboto: 'var(--font-roboto)'
+      },
+      boxShadow: {
+        yellow: '0px 12px 10px 0px rgba(255, 204, 104, 0.10)',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

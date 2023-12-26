@@ -1,13 +1,18 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import localFont from 'next/font/local'
-const inter = Inter({ subsets: ['latin'] })
+
 const iranSans = localFont({
   src: '../public/fonts/iranSans.ttf',
   variable: '--font-iranSans',
-
-
+})
+const iranSansBold = localFont({
+  src: '../public/fonts/iranSansBold.ttf',
+  variable: '--font-iranSansBold',
+})
+const roboto = localFont({
+  src: '../public/fonts/roboto.ttf',
+  variable: '--font-roboto',
 })
 
 export const metadata: Metadata = {
@@ -21,8 +26,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" dir='rtl'>
-      <body className={iranSans.variable}>{children}</body>
+    <html lang="fa" dir='rtl'>
+      <body className={`${iranSans.variable} ${iranSansBold.variable} ${roboto.variable} ${iranSans.className}`}>{children}</body>
     </html>
   )
 }
