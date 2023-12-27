@@ -1,5 +1,3 @@
-import React from "react";
-
 const EvaluationOptions = ({ selected }: { selected: boolean }) => {
   const renderedContainerClass = selected
     ? "text-[#202020] bg-[#FFD073]"
@@ -24,3 +22,6 @@ const EvaluationOptions = ({ selected }: { selected: boolean }) => {
 };
 
 export default EvaluationOptions;
+function useStete(arg0: boolean): [any, any] {
+  throw new Error("Function not implemented.");
+}
