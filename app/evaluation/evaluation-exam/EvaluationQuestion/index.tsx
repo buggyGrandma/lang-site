@@ -1,15 +1,21 @@
 "use client";
-import { useState } from "react";
-import Options from "./Options";
+import { useEffect, useState } from "react";
+import EvaluationOptions from "./EvaluationOptions";
+import EvaluationTimer from "./EvaluationTimer";
 
 const EvaluationQuestion = () => {
   const [selected, setSelected] = useState("");
+  const [time, setTime] = useState<number>(60);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      time > 0 && setTime(time - 1);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [time]);
   return (
     <div className="w-full flex flex-col justify-center items-center mb-[128px]">
       <div className="relative mb-[90px]  w-full max-w-[648px] h-[220px] bg-white rounded-[12px] flex justify-center items-center">
-        <div className="bg-[#F1F1F1] absolute top-3 left-3 w-[40px] h-[40px] rounded-[8px] flex items-center justify-center text-[18px] text-[#555555] font-medium">
-          60
-        </div>
+        <EvaluationTimer warn={time < 16}>{time}</EvaluationTimer>
         <div className="bg-[#F5F5F5] text-[18px] font-normal text-[#818181] px-[16px] py-[8px] rounded-full absolute top-3 right-3">
           I don`t know
         </div>
@@ -24,7 +30,7 @@ const EvaluationQuestion = () => {
         id="A"
       />
       <label className="w-full max-w-[648px]" htmlFor="A">
-        <Options selected={selected === "A"} />
+        <EvaluationOptions selected={selected === "A"} />
       </label>
       <input
         onChange={() => setSelected("B")}
@@ -35,7 +41,7 @@ const EvaluationQuestion = () => {
         id="B"
       />
       <label className="w-full max-w-[648px]" htmlFor="B">
-        <Options selected={selected === "B"} />
+        <EvaluationOptions selected={selected === "B"} />
       </label>
       <input
         onChange={() => setSelected("C")}
@@ -46,7 +52,7 @@ const EvaluationQuestion = () => {
         id="C"
       />
       <label className="w-full max-w-[648px]" htmlFor="C">
-        <Options selected={selected === "C"} />
+        <EvaluationOptions selected={selected === "C"} />
       </label>
       <input
         onChange={() => setSelected("D")}
@@ -57,7 +63,7 @@ const EvaluationQuestion = () => {
         id="D"
       />
       <label className="w-full max-w-[648px]" htmlFor="D">
-        <Options selected={selected === "D"} />
+        <EvaluationOptions selected={selected === "D"} />
       </label>
     </div>
   );

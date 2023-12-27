@@ -1,6 +1,6 @@
 import React from "react";
 
-const Options = ({ selected }: { selected: boolean }) => {
+const EvaluationOptions = ({ selected }: { selected: boolean }) => {
   const renderedContainerClass = selected
     ? "text-[#202020] bg-[#FFD073]"
     : "text-[#818181]  bg-white";
@@ -23,4 +23,4 @@ const Options = ({ selected }: { selected: boolean }) => {
   );
 };
 
-export default Options;
+export default EvaluationOptions;
