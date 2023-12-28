@@ -28,7 +28,7 @@ const classReservasionLayout = ({
         <div className="md:hidden h-[105px] py-[12px] px-10 border-b bg-white">
           <ReservationNav step="completeInfo" />
         </div>
-        <div className="p-4 gap-4 flex flex-col justify-center items-center bg-[#F8F8FB] h-fit">
+        <div className="p-4 gap-4 flex flex-col justify-center items-center bg-white h-fit">
           {children}
         </div>
       </div>
