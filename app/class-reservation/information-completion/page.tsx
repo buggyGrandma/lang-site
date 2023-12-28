@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import RadioIcon from "../../components/RadioIcon";
+import TextInput from "./TextInput";
 
 const InformationCompletion = () => {
   const [selected, setSelected] = useState<"male" | "female">("male");
@@ -24,12 +25,7 @@ const InformationCompletion = () => {
           </div>
         </div>
         <div className="border-b py-[24px] gap-x-[24px] gap-y-[16px] flex flex-col md:flex-row ">
-          <div>
-            <div className="mb-[19px] text-[#5A5A5A] text-[12px] font-normal">
-              نام و نام‌خانوادگی*
-            </div>
-            <div className="md:w-[312px] h-[52px] bg-[#F6F6F6] w-full "></div>
-          </div>
+          <TextInput />
           <div>
             <div className="mb-[19px] text-[#5A5A5A] text-[12px] font-normal">
               سن*
