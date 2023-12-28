@@ -42,21 +42,6 @@ const InformationCompletion = () => {
             </div>
             <div className="text-[#212121] text-[14px] font-normal flex gap-[40px] items-center">
               <input
-                onChange={() => setSelected("male")}
-                className="hidden"
-                type="radio"
-                name="sex"
-                value="male"
-                id="male"
-              />
-              <label
-                className="flex gap-[12px] justify-center items-center"
-                htmlFor="male"
-              >
-                <RadioIcon selected={selected === "male"} />
-                <p>مرد</p>
-              </label>
-              <input
                 onChange={() => setSelected("female")}
                 className="hidden"
                 type="radio"
@@ -70,6 +55,21 @@ const InformationCompletion = () => {
               >
                 <RadioIcon selected={selected === "female"} />
                 <p>زن</p>
+              </label>
+              <input
+                onChange={() => setSelected("male")}
+                className="hidden"
+                type="radio"
+                name="sex"
+                value="male"
+                id="male"
+              />
+              <label
+                className="flex gap-[12px] justify-center items-center"
+                htmlFor="male"
+              >
+                <RadioIcon selected={selected === "male"} />
+                <p>مرد</p>
               </label>
             </div>
           </div>
