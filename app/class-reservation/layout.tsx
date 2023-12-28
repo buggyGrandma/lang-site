@@ -1,8 +1,5 @@
-import CloseButton from "./information-completion/CloseButton";
-import MobileCloseButton from "./information-completion/MobileCloseButton";
 import ReservationFooter from "./ReservationFooter";
 import ReservationHeader from "./ReservationHeader";
-import ReservationNav from "./ReservationNav";
 
 const classReservasionLayout = ({
   children,

@@ -74,6 +74,18 @@ const InformationCompletion = () => {
             </div>
           </div>
         </div>
+        <div className="py-[24px] flex flex-col md:flex-row ">
+          <div>
+            <div className="mb-[19px] flex items-center text-[#5A5A5A] text-[14px] font-iranSansBold font-medium">
+              دریافت کتاب
+              <p className="text-[12px] font-normal font-iranSans">(اختیاری)</p>
+            </div>
+            <div className="flex flex-col md:flex-row gap-x-[24px] gap-y-[12px]">
+              <div className="md:w-[480px] md:h-[77px] h-[97px] bg-[#F6F6F6] w-full "></div>
+              <div className="md:w-[480px] md:h-[77px] h-[97px] bg-[#F6F6F6] w-full "></div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
