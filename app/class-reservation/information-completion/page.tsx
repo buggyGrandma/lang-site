@@ -3,6 +3,7 @@ import { useState } from "react";
 import RadioIcon from "../../components/RadioIcon";
 import TextInput from "./TextInput";
 import Book from "./Book";
+import DateSelect from "./DateSelect";
 
 const InformationCompletion = () => {
   const [sex, setSex] = useState<"male" | "female">("male");
@@ -23,7 +24,13 @@ const InformationCompletion = () => {
             <div className="mb-[19px] text-[#5A5A5A] text-[14px] font-iranSansBold font-medium">
               تعیین سطح تلفنی
             </div>
-            <div className="md:w-[312px] h-[52px] bg-[#F6F6F6] w-full "></div>
+            <DateSelect
+              dates={[
+                "چهارشنبه ۲۳  / ساعت ۱۲ تا ۱۳:۳۰",
+                "چهارشنبه ۳  / ساعت ۱۲ تا ۱۳:۳۰",
+                "چهارشنبه ۲  / ساعت ۱۲ تا ۱۳:۳۰",
+              ]}
+            />
           </div>
         </div>
         <div className="border-b py-[24px] gap-x-[24px] gap-y-[16px] flex flex-col md:flex-row ">

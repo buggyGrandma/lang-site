@@ -16,6 +16,7 @@ const config: Config = {
       boxShadow: {
         yellow: "0px 12px 10px 0px rgba(255, 204, 104, 0.10)",
         green: " 0px 6px 16px rgba(12, 172, 103, 0.10)",
+        modalShadow: "0px 0px 5px rgba(0, 0, 0, 0.10)",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

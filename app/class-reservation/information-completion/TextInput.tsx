@@ -13,6 +13,7 @@ const TextInput = () => {
         نام و نام‌خانوادگی*
       </label>
       <input
+        placeholder="مثل: بردیا ادیبی"
         id="1"
         type="text"
         onFocus={() => setColor("text-[#0CAC67]")}
