@@ -2,9 +2,11 @@
 import { useState } from "react";
 import RadioIcon from "../../components/RadioIcon";
 import TextInput from "./TextInput";
+import Book from "./Book";
 
 const InformationCompletion = () => {
-  const [selected, setSelected] = useState<"male" | "female">("male");
+  const [sex, setSex] = useState<"male" | "female">("male");
+  const [book, setBook] = useState<"book1" | "book2">();
   return (
     <>
       <div className="max-w-[984px]">
@@ -38,7 +40,7 @@ const InformationCompletion = () => {
             </div>
             <div className="text-[#212121] text-[14px] font-normal flex gap-[40px] items-center">
               <input
-                onChange={() => setSelected("female")}
+                onChange={() => setSex("female")}
                 className="hidden"
                 type="radio"
                 name="sex"
@@ -49,11 +51,11 @@ const InformationCompletion = () => {
                 className="flex gap-[12px] justify-center items-center"
                 htmlFor="female"
               >
-                <RadioIcon selected={selected === "female"} />
+                <RadioIcon selected={sex === "female"} />
                 <p>زن</p>
               </label>
               <input
-                onChange={() => setSelected("male")}
+                onChange={() => setSex("male")}
                 className="hidden"
                 type="radio"
                 name="sex"
@@ -64,7 +66,7 @@ const InformationCompletion = () => {
                 className="flex gap-[12px] justify-center items-center"
                 htmlFor="male"
               >
-                <RadioIcon selected={selected === "male"} />
+                <RadioIcon selected={sex === "male"} />
                 <p>مرد</p>
               </label>
             </div>
@@ -77,8 +79,28 @@ const InformationCompletion = () => {
               <p className="text-[12px] font-normal font-iranSans">(اختیاری)</p>
             </div>
             <div className="flex flex-col md:flex-row gap-x-[24px] gap-y-[12px]">
-              <div className="md:w-[480px] md:h-[77px] h-[97px] bg-[#F6F6F6] w-full "></div>
-              <div className="md:w-[480px] md:h-[77px] h-[97px] bg-[#F6F6F6] w-full "></div>
+              <input
+                onChange={() => setBook("book1")}
+                className="hidden"
+                type="radio"
+                name="book"
+                value="book1"
+                id="book1"
+              />
+              <label htmlFor="book1">
+                <Book selected={book === "book1"} />
+              </label>
+              <input
+                onChange={() => setBook("book2")}
+                className="hidden"
+                type="radio"
+                name="book"
+                value="book2"
+                id="book2"
+              />
+              <label htmlFor="book2">
+                <Book selected={book === "book2"} />
+              </label>
             </div>
           </div>
         </div>
