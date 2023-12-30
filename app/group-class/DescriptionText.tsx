@@ -36,7 +36,7 @@ const DescriptionText: React.FC = () => {
       {textData.slice(0, showAll ? textData.length : 2).map((item, index) => (
         <div key={index} className="mb-4 flex flex-col gap-y-4">
           <h3 className='text-black font-iranSansBold text-2xl font-medium '>{item.title}</h3>
-          <p className='text-[#555] font-iranSans leading-8 text-base text-justify'>{item.text}</p>
+          <p className='text-[#555] font-iranSans leading-8 text-base lg-max:text-sm lg-max:leading-6 text-justify'>{item.text}</p>
         </div>
       ))}
       {textData.length > 2 && (

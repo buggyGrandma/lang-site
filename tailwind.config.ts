@@ -7,6 +7,28 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    screens: {
+      '2xl': {'min': '1536px'},
+      'xl': {'min': '1280px'},
+      'lg': {'min': '1024x'},
+      'md': {'min': '768px'},
+      'sm': {'min': '640px'},
+
+      '2xl-max': {'max': '1535px'},
+      // => @media (max-width: 1535px) { ... }
+
+      'xl-max': {'max': '1279px'},
+      // => @media (max-width: 1279px) { ... }
+
+      'lg-max': {'max': '1023px'},
+      // => @media (max-width: 1023px) { ... }
+
+      'md-max': {'max': '767px'},
+      // => @media (max-width: 767px) { ... }
+
+      'sm-max': {'max': '639px'},
+      // => @media (max-width: 639px) { ... }
+    },
     extend: {
       fontFamily: {
         iranSans: 'var(--font-iranSans)',
@@ -15,6 +37,7 @@ const config: Config = {
       },
       boxShadow: {
         yellow: '0px 12px 10px 0px rgba(255, 204, 104, 0.10)',
+        whiteCustom: '0px 32px 52px 0px rgba(0, 0, 0, 0.02)',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

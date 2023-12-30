@@ -42,7 +42,7 @@ const Accordion: React.FC = () => {
   ];
 
   return (
-    <div className="w-[50%] justify-center flex flex-col items-center mx-auto z-20 relative gap-y-6">
+    <div className="w-[50%] lg-max:w-full lg-max:mx-4 justify-center flex flex-col items-center mx-auto z-20 relative gap-y-6">
       {faqData.map((faq, index) => (
         <div key={index} className=" w-full rounded-xl bg-white">
           <button onClick={() => toggleAccordion(index)} className="flex justify-between items-center w-full py-4 px-6 rounded-md">
