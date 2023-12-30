@@ -1,7 +1,7 @@
 import React from "react";
 import ReservationNav from "./ReservationNav";
-import CloseButton from "./information-completion/CloseButton";
-import MobileCloseButton from "./information-completion/MobileCloseButton";
+import CloseButton from "./information-completion/components/DataSelect/CloseButton";
+import MobileCloseButton from "./information-completion/components/DataSelect/MobileCloseButton";
 
 const ReservationHeader = () => {
   return (

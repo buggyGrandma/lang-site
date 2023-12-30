@@ -2,12 +2,13 @@
 import { useState } from "react";
 import RadioIcon from "../../components/RadioIcon";
 import TextInput from "./TextInput";
-import Book from "./Book";
-import DateSelect from "./DateSelect";
+import Book from "./components/Book";
+import DateSelect from "./components/DataSelect";
 
 const InformationCompletion = () => {
   const [sex, setSex] = useState<"male" | "female">("male");
-  const [book, setBook] = useState<"book1" | "book2">();
+  const [book1, setBook1] = useState<boolean>(false);
+  const [book2, setBook2] = useState<boolean>(false);
   return (
     <>
       <div className="max-w-[984px]">
@@ -25,7 +26,7 @@ const InformationCompletion = () => {
               تعیین سطح تلفنی
             </div>
             <DateSelect
-              dates={[
+              inputs={[
                 "چهارشنبه ۲۳  / ساعت ۱۲ تا ۱۳:۳۰",
                 "چهارشنبه ۳  / ساعت ۱۲ تا ۱۳:۳۰",
                 "چهارشنبه ۲  / ساعت ۱۲ تا ۱۳:۳۰",
@@ -39,7 +40,14 @@ const InformationCompletion = () => {
             <div className="mb-[19px] text-[#5A5A5A] text-[12px] font-normal">
               سن*
             </div>
-            <div className="md:w-[312px] h-[52px] bg-[#F6F6F6] w-full "></div>
+            <DateSelect
+              inputs={[
+                "۱۳ تا ۱۸ سال",
+                "۱۸ تا ۲۵ سال",
+                "۲۵ تا ۳۵ سال",
+                "۳۵ سال به بالا",
+              ]}
+            />
           </div>
           <div>
             <div className="mb-[19px] text-[#5A5A5A] text-[12px] font-normal">
@@ -87,26 +95,26 @@ const InformationCompletion = () => {
             </div>
             <div className="flex flex-col md:flex-row gap-x-[24px] gap-y-[12px]">
               <input
-                onChange={() => setBook("book1")}
+                onChange={() => setBook1(!book1)}
                 className="hidden"
-                type="radio"
+                type="checkbox"
                 name="book"
                 value="book1"
                 id="book1"
               />
               <label htmlFor="book1">
-                <Book selected={book === "book1"} />
+                <Book selected={book1} />
               </label>
               <input
-                onChange={() => setBook("book2")}
+                onChange={(e) => setBook2(!book2)}
                 className="hidden"
-                type="radio"
+                type="checkbox"
                 name="book"
                 value="book2"
                 id="book2"
               />
               <label htmlFor="book2">
-                <Book selected={book === "book2"} />
+                <Book selected={book2} />
               </label>
             </div>
           </div>
