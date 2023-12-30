@@ -12,7 +12,7 @@ const ReservationHeader = () => {
           <div className="text-[14px] text-[#757575] font-normal">
             برای رزرو کلاس ترمیک اطلاعات زیر را تکمیل کنید.
           </div>
-          <ReservationNav step="completeInfo" />
+          <ReservationNav registered={false} step="completeInfo" />
         </div>
         <div className="flex gap-[8px] px-[8px] items-center md:hidden">
           <MobileCloseButton />
@@ -22,7 +22,7 @@ const ReservationHeader = () => {
         </div>
       </div>
       <div className="md:hidden h-[105px] py-[12px] px-10 border-b bg-white">
-        <ReservationNav step="completeInfo" />
+        <ReservationNav registered={false} step="check" />
       </div>
     </>
   );

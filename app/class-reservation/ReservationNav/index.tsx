@@ -1,8 +1,9 @@
 import ReservationStep from "./ReservationStep";
 interface Props {
   step: "register" | "completeInfo" | "check";
+  registered: boolean;
 }
-const ReservationNav = ({ step }: Props) => {
+const ReservationNav = ({ step, registered }: Props) => {
   const renderedLine1 =
     step === "completeInfo"
       ? "border-[#DCDCDC] border-dashed"
@@ -15,17 +16,28 @@ const ReservationNav = ({ step }: Props) => {
         step="completeInfo"
         stepState={step === "completeInfo" ? "active" : "done"}
       />
+      {!registered && (
+        <>
+          <div
+            className={`${renderedLine1} w-full max-w-[170px] h-[2px] border-b-2`}
+          />
+          <ReservationStep
+            step="register"
+            stepState={
+              step === "register"
+                ? "active"
+                : step === "check"
+                ? "done"
+                : "pending"
+            }
+          />
+        </>
+      )}
+
       <div
-        className={`${renderedLine1} w-full max-w-[170px] h-[2px] border-b-2`}
-      />
-      <ReservationStep
-        step="register"
-        stepState={
-          step === "register" ? "active" : step === "check" ? "done" : "pending"
-        }
-      />
-      <div
-        className={`${renderedLine2} w-full max-w-[170px] h-[2px] border-b-2`}
+        className={`${renderedLine2} w-full ${
+          registered ? "max-w-[386px]" : "max-w-[170px]"
+        } h-[2px] border-b-2`}
       />
       <ReservationStep
         step="check"
