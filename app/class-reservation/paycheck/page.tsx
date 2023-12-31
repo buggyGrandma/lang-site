@@ -1,3 +1,4 @@
+import Book from "./Book";
 import Course from "./Course";
 import Expenses from "./Expenses";
 
@@ -19,6 +20,7 @@ const PayCheck = () => {
               { title: "مدت دروه :", description: "۶ ترم (هر ترم ۱۲ جلسه)" },
             ]}
           />
+          <Book />
         </div>
         <div className="w-full md:max-w-[290px] flex flex-col">
           <p className="mb-[12px] text-[#5A5A5A] text-[14px] font-medium">
