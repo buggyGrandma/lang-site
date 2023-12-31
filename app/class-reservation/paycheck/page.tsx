@@ -1,22 +1,38 @@
 import Course from "./Course";
+import Expenses from "./Expenses";
 
 const PayCheck = () => {
   return (
-    <div className="w-full max-w-[984px]">
-      <div className="w-full">
-        <p className="mb-[12px] text-[#5A5A5A] text-[14px] font-medium">
-          اطلاعات صورت حساب
-        </p>
-        <Course
-          input={[
-            {
-              title: "زمان‌بندی دوره:",
-              description: "شنبه و سه‌شنبه از ساعت ۱۲:۳۰ تا ۱۴",
-            },
-            { title: "تاریخ شروع:", description: " ۲۴ اسفند ۱۴۰۱" },
-            { title: "مدت دروه :", description: "۶ ترم (هر ترم ۱۲ جلسه)" },
-          ]}
-        />
+    <div className="w-full max-w-[984px] h-[100vh]">
+      <div className="w-full flex flex-col md:flex-row gap-[24px]">
+        <div className="w-full max-w-[670px] ">
+          <p className="mb-[12px] text-[#5A5A5A] text-[14px] font-medium">
+            اطلاعات صورت حساب
+          </p>
+          <Course
+            input={[
+              {
+                title: "زمان‌بندی دوره:",
+                description: "شنبه و سه‌شنبه از ساعت ۱۲:۳۰ تا ۱۴",
+              },
+              { title: "تاریخ شروع:", description: " ۲۴ اسفند ۱۴۰۱" },
+              { title: "مدت دروه :", description: "۶ ترم (هر ترم ۱۲ جلسه)" },
+            ]}
+          />
+        </div>
+        <div className="w-full md:max-w-[290px] flex flex-col">
+          <p className="mb-[12px] text-[#5A5A5A] text-[14px] font-medium">
+            هزینه ها
+          </p>
+          <Expenses
+            input={[
+              { title: "دوره:", price: "۴۸۰,۰۰۰ تومان" },
+              { title: "کتاب‌ها + ارسال:", price: "۰" },
+              { title: "مقدار تخفیف:", price: "۰" },
+            ]}
+            total="۶۵۰,۰۰۰ تومان"
+          />
+        </div>
       </div>
     </div>
   );
