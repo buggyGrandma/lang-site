@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import RadioIcon from "../../components/RadioIcon";
-import TextInput from "./TextInput";
+import TextInput from "../../components/TextInput";
 import Book from "./components/Book";
 import DateSelect from "./components/DataSelect";
 
@@ -35,7 +35,13 @@ const InformationCompletion = () => {
           </div>
         </div>
         <div className="border-b py-[24px] gap-x-[24px] gap-y-[16px] flex flex-col md:flex-row ">
-          <TextInput />
+          <div className="w-full md:max-w-[312px]">
+            <TextInput
+              label="نام و نام‌خانوادگی*"
+              placeholder="مثل: بردیا ادیبی"
+            />
+          </div>
+
           <div>
             <div className="mb-[19px] text-[#5A5A5A] text-[12px] font-normal">
               سن*

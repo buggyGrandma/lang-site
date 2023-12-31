@@ -2,7 +2,13 @@
 
 import { useState } from "react";
 
-const TextInput = () => {
+const TextInput = ({
+  label,
+  placeholder,
+}: {
+  label: string;
+  placeholder?: string;
+}) => {
   const [color, setColor] = useState("text-[#5A5A5A]");
   return (
     <div className="flex flex-col ">
@@ -10,15 +16,15 @@ const TextInput = () => {
         htmlFor="1"
         className={`mb-[19px] text-[12px] font-normal ${color}`}
       >
-        نام و نام‌خانوادگی*
+        {label}
       </label>
       <input
-        placeholder="مثل: بردیا ادیبی"
+        placeholder={placeholder}
         id="1"
         type="text"
         onFocus={() => setColor("text-[#0CAC67]")}
         onBlur={() => setColor("text-[#5A5A5A]")}
-        className="md:w-[312px] h-[52px] p-2 bg-[#F6F6F6] w-full focus:bg-white outline-[#0CAC67] rounded-[4px]"
+        className=" h-[52px] p-2 bg-[#F6F6F6] w-full focus:bg-white outline-[#0CAC67] rounded-[4px]"
       ></input>
     </div>
   );
