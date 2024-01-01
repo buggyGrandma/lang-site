@@ -40,7 +40,7 @@ const Button = ({
       onMouseEnter={() => setArrowcolor(renderedColor?.onHoverArrowColor)}
       onMouseLeave={() => setArrowcolor(renderedColor?.arrowColor)}
       disabled={color === "disabled"}
-      className={`w-full h-full ${
+      className={`w-full h-full p-2 ${
         renderedColor?.className
       } rounded-[8px] gap-[8px] flex ${
         arrowposition === "left" && "flex-row-reverse"
