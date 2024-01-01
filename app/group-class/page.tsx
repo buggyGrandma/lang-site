@@ -67,7 +67,7 @@ const groupClass = () => {
         </div>
         <div className="relative">
           
-          <div className="bg-[#f8f8fb] w-[86%] lg-max:w-[91%] h-[115%] lg-max:h-[140%] absolute bottom-[-10.5rem]  mx-[6.5rem] lg-max:mx-4 z-0  rounded-lg"></div>
+          <div className="bg-[#f8f8fb] w-[86%] lg-max:w-[91%] h-[115%] lg-max:h-[140%] absolute bottom-[-10.5rem]   left-[50%] translate-x-[-50%]  z-0  rounded-lg"></div>
           <video className="mx-auto mt-8 lg-max:mt-10 lg-max:px-8 z-0 relative rounded-3xl"poster="./images/termi/poster-video.png" preload="none" width={580} height={384}  controls>
             <source src="/videos/intro.mp4" type="video/mp4" />
             Your browser does not support the video tag.
@@ -141,12 +141,15 @@ const groupClass = () => {
             </h2>
           </div>
           <div className="w-full relative z-10 mb-16">
-            <h2 className="text-[#343434] text-center font-iranSansBold font-bold text-2xl lg-max:text-base">
-                <span className="text-[#0CAC67]">مزایای </span >شرکت د<span className="underline underline-offset-[1.5rem] lg-max:underline-offset-[1rem] decoration-[#0CAC67] decoration-4 lg-max:decoration-2">ر کلاس</span> های همیارزبان
-            </h2>
-            <div className="absolute right-[36%] top-[-5%] lg-max:right-[15%] lg-max:w-[32px] lg-max:h-[31px]">
-              <Image src={circleTitleIcon} alt="circle icon"></Image>
+            <div className="relative w-fit mx-auto">
+              <h2 className="text-[#343434] text-center font-iranSansBold font-bold text-2xl lg-max:text-base">
+                  <span className="text-[#0CAC67]">مزایای </span >شرکت د<span className="underline underline-offset-[1.5rem] lg-max:underline-offset-[1rem] decoration-[#0CAC67] decoration-4 lg-max:decoration-2">ر کلاس</span> های همیارزبان
+              </h2>
+              <div className="absolute right-0 top-[-5%] lg-max:right-[15%] lg-max:w-[32px] lg-max:h-[31px]">
+                <Image src={circleTitleIcon} alt="circle icon"></Image>
+              </div>
             </div>
+
             <div className="absolute left-1/3 top-[-3rem] lg-max:hidden">
               <Image src={greenCircleLeft} alt="circle icon"></Image>
             </div>
