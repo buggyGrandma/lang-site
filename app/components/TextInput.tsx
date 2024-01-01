@@ -6,18 +6,20 @@ const TextInput = ({
   label,
   placeholder,
 }: {
-  label: string;
+  label?: string;
   placeholder?: string;
 }) => {
   const [color, setColor] = useState("text-[#5A5A5A]");
   return (
     <div className="flex flex-col ">
-      <label
-        htmlFor="1"
-        className={`mb-[19px] text-[12px] font-normal ${color}`}
-      >
-        {label}
-      </label>
+      {label && (
+        <label
+          htmlFor="1"
+          className={`mb-[19px] text-[12px] font-normal ${color}`}
+        >
+          {label}
+        </label>
+      )}
       <input
         placeholder={placeholder}
         id="1"
