@@ -9,9 +9,9 @@ import Button from './Button';
 import { useState } from 'react';
 
 const Navbar: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <nav className="bg-[#212121] px-[6.5rem] lg-max:px-8 h-[110px] flex items-center justify-between w-full lg-max:hidden">
+    <nav className="bg-[#212121] px-[6.5rem] lg-max:px-8 h-[110px] flex items-center justify-between w-full md-max:hidden">
       <div className="container mx-auto flex  items-center">
         <div className='w-[241px] pl-14'>
         <Link href="/" >

@@ -46,12 +46,12 @@ const UserCommentSlider: React.FC = () => {
 
   return (
     <div className="relative">
-      <div className="text-center w-[28rem] lg-max:w-full mx-auto bg-[#FAFAFA] mt-4 rounded-xl">{comments[activeIndex]}
+      <div className="text-center w-[28rem] lg-max:w-[91%] mx-auto bg-[#FAFAFA] lg-max:bg-white lg-max:rounded-[10px] mt-4 rounded-xl">{comments[activeIndex]}
       </div>
-      <div className="flex justify-center items-center gap-x-4 space-x-2">
+      <div className="flex w-full justify-center items-center gap-x-2 space-x-2">
         <button
           onClick={prevComment}
-          className="group relative w-14 h-14 flex justify-center items-center rounded-full bg-white hover:bg-[#0CAC67] transition-colors duration-300"
+          className="lg-max:hidden group absolute top-1/3 right-[9.5rem] w-14 h-14 flex justify-center items-center rounded-full bg-white hover:bg-[#0CAC67] transition-colors duration-300"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -72,12 +72,12 @@ const UserCommentSlider: React.FC = () => {
         {comments.map((_, index) => (
           <div
             key={index}
-            className={`w-10 h-1 rounded-[29px] ${
+            className={`w-10 h-1 mt-10 lg-max:mt-4 mx-auto rounded-[29px] ${
               index === activeIndex ? 'bg-[#0CAC67]' : 'bg-[#E1E1E1]'
             }`}
           />
         ))}
-        <button onClick={nextComment} className="group relative w-14 h-14 flex justify-center items-center rounded-full bg-white hover:bg-[#0CAC67] transition-colors duration-300">
+        <button onClick={nextComment} className="lg-max:hidden group absolute top-1/3 left-[9.5rem] w-14 h-14 flex justify-center items-center rounded-full bg-white hover:bg-[#0CAC67] transition-colors duration-300">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

@@ -4,7 +4,7 @@ import arrowDown from '@/public/images/faq/arrow-down.svg'
 import arrowUp from '@/public/images/faq/arrow-up.svg'
 import Image from 'next/image';
 import Link from 'next/link';
-const Accordion: React.FC = () => {
+const Faq: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const toggleAccordion = (index: number) => {
@@ -42,11 +42,11 @@ const Accordion: React.FC = () => {
   ];
 
   return (
-    <div className="w-[50%] lg-max:w-full lg-max:mx-4 justify-center flex flex-col items-center mx-auto z-20 relative gap-y-6">
+    <div className="w-[50%] lg-max:w-[91%] lg-max:mx-4 justify-center flex flex-col items-center mx-auto z-20 relative gap-y-6">
       {faqData.map((faq, index) => (
         <div key={index} className=" w-full rounded-xl bg-white">
           <button onClick={() => toggleAccordion(index)} className="flex justify-between items-center w-full py-4 px-6 rounded-md">
-            <p className='text-[#282828] font-iranSans font-medium text-base'>{faq.question}</p>
+            <p className='text-[#282828] font-iranSans font-medium text-base lg-max:text-sm lg-max:text-start'>{faq.question}</p>
             {activeIndex === index ? <Image src={arrowUp} alt="Close" /> : <Image src={arrowDown} alt="Open" />}
           </button>
           {activeIndex === index && <div className='mb-6 mx-6 rounded-lg p-4 bg-[#F8F8F8]'>
@@ -57,4 +57,4 @@ const Accordion: React.FC = () => {
   );
 };
 
-export default Accordion;
+export default Faq;
