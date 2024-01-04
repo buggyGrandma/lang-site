@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import CloseIcon from "./assets/Close";
 import localFont from "next/font/local";

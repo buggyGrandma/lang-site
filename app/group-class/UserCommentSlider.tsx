@@ -1,39 +1,61 @@
-'use client'
-import React, { useState } from 'react';
-import commaIcon from '@/public/images/userCommentSlider/comma.svg'
-import Image from 'next/image';
+"use client";
+import React, { useState } from "react";
+import commaIcon from "@/public/images/userCommentSlider/comma.svg";
+import Image from "next/image";
 const UserCommentSlider: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const comments = [
-    <div key={0} className='w-full p-8 flex flex-col gap-y-4 shadow-whiteCustom'>
-        <div className='flex justify-end items-center  gap-x-20'>
-            <h3 className='text-black text-base font-medium font-iranSans text-center'>فرزاد باغبان زاده</h3>
-            <Image src={commaIcon} alt='comma icon' width={60} ></Image>
-        </div>
-       <div className='py-4 px-8'>
-        <p className='text-[#818181] text-sm leading-6 font-iranSans font-normal text-center '>اساتید به شدت با تجربه و مسلط هستند . با وجود گروهی بودن کلاس ها، به روند پیشرفت هر زبان آموز اهمیت زیادی داده میشود.</p>
-       </div> 
+    <div
+      key={0}
+      className="w-full p-8 flex flex-col gap-y-4 shadow-whiteCustom"
+    >
+      <div className="flex justify-end items-center  gap-x-20">
+        <h3 className="text-black text-base font-medium font-iranSans text-center">
+          فرزاد باغبان زاده
+        </h3>
+        <Image src={commaIcon} alt="comma icon" width={60}></Image>
+      </div>
+      <div className="py-4 px-8">
+        <p className="text-[#818181] text-sm leading-6 font-iranSans font-normal text-center ">
+          اساتید به شدت با تجربه و مسلط هستند . با وجود گروهی بودن کلاس ها، به
+          روند پیشرفت هر زبان آموز اهمیت زیادی داده میشود.
+        </p>
+      </div>
     </div>,
-    <div key={1} className='w-full p-8 flex flex-col gap-y-4 shadow-whiteCustom'>
-        <div className='flex justify-end items-center  gap-x-20'>
-            <h3 className='text-black text-base font-medium font-iranSans text-center'>زهرا کیانی</h3>
-            <Image src={commaIcon} alt='comma icon' width={60} ></Image>
-        </div>
-       <div className='py-4 px-8'>
-        <p className='text-[#818181] text-sm leading-6 font-iranSans font-normal text-center '>از بچگی تا الان که 25 سالمه خیلی کلاس های مختلف رو امتحان کردم ولی به جرات میگم که تا الان کلاس آنلاینی با این کیفیت ندیدم و خیلی راضی هستم.</p>
-       </div> 
+    <div
+      key={1}
+      className="w-full p-8 flex flex-col gap-y-4 shadow-whiteCustom"
+    >
+      <div className="flex justify-end items-center  gap-x-20">
+        <h3 className="text-black text-base font-medium font-iranSans text-center">
+          زهرا کیانی
+        </h3>
+        <Image src={commaIcon} alt="comma icon" width={60}></Image>
+      </div>
+      <div className="py-4 px-8">
+        <p className="text-[#818181] text-sm leading-6 font-iranSans font-normal text-center ">
+          از بچگی تا الان که 25 سالمه خیلی کلاس های مختلف رو امتحان کردم ولی به
+          جرات میگم که تا الان کلاس آنلاینی با این کیفیت ندیدم و خیلی راضی هستم.
+        </p>
+      </div>
     </div>,
-    <div key={2} className='w-full p-8 flex flex-col gap-y-4 shadow-whiteCustom'>
-        <div className='flex justify-end items-center  gap-x-20'>
-            <h3 className='text-black text-base font-medium font-iranSans text-center'>نیروانا زندی</h3>
-            <Image src={commaIcon} alt='comma icon' width={60} ></Image>
-        </div>
-       <div className='py-4 px-8'>
-        <p className='text-[#818181] text-sm leading-6 font-iranSans font-normal text-center '>تعامل در کلاس ها باعث میشه مطالب رو بهتر یادبگیریم و کلاس خسته کننده نباشه. ممنونم از تیم همیارزبان و استاد خوبم. </p>
-       </div> 
+    <div
+      key={2}
+      className="w-full p-8 flex flex-col gap-y-4 shadow-whiteCustom"
+    >
+      <div className="flex justify-end items-center  gap-x-20">
+        <h3 className="text-black text-base font-medium font-iranSans text-center">
+          نیروانا زندی
+        </h3>
+        <Image src={commaIcon} alt="comma icon" width={60}></Image>
+      </div>
+      <div className="py-4 px-8">
+        <p className="text-[#818181] text-sm leading-6 font-iranSans font-normal text-center ">
+          تعامل در کلاس ها باعث میشه مطالب رو بهتر یادبگیریم و کلاس خسته کننده
+          نباشه. ممنونم از تیم همیارزبان و استاد خوبم.{" "}
+        </p>
+      </div>
     </div>,
-    
-    
   ];
 
   const nextComment = () => {
@@ -41,12 +63,15 @@ const UserCommentSlider: React.FC = () => {
   };
 
   const prevComment = () => {
-    setActiveIndex((prevIndex) => (prevIndex - 1 + comments.length) % comments.length);
+    setActiveIndex(
+      (prevIndex) => (prevIndex - 1 + comments.length) % comments.length
+    );
   };
 
   return (
     <div className="relative">
-      <div className="text-center w-[28rem] lg-max:w-[91%] mx-auto bg-[#FAFAFA] lg-max:bg-white lg-max:rounded-[10px] mt-4 rounded-xl">{comments[activeIndex]}
+      <div className="text-center w-[28rem] lg-max:w-[91%] mx-auto bg-[#FAFAFA] lg-max:bg-white lg-max:rounded-[10px] mt-4 rounded-xl">
+        {comments[activeIndex]}
       </div>
       <div className="flex w-full justify-center items-center gap-x-2 space-x-2">
         <button
@@ -73,11 +98,14 @@ const UserCommentSlider: React.FC = () => {
           <div
             key={index}
             className={`w-10 h-1 mt-10 lg-max:mt-4 mx-auto rounded-[29px] ${
-              index === activeIndex ? 'bg-[#0CAC67]' : 'bg-[#E1E1E1]'
+              index === activeIndex ? "bg-[#0CAC67]" : "bg-[#E1E1E1]"
             }`}
           />
         ))}
-        <button onClick={nextComment} className="lg-max:hidden group absolute top-1/3 left-[9.5rem] w-14 h-14 flex justify-center items-center rounded-full bg-white hover:bg-[#0CAC67] transition-colors duration-300">
+        <button
+          onClick={nextComment}
+          className="lg-max:hidden group absolute top-1/3 left-[9.5rem] w-14 h-14 flex justify-center items-center rounded-full bg-white hover:bg-[#0CAC67] transition-colors duration-300"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -93,12 +121,10 @@ const UserCommentSlider: React.FC = () => {
               className="text-[#1C274C] group-hover:text-white"
             />
           </svg>
-          
         </button>
       </div>
-      
     </div>
   );
 };
 
-export default UserCommentSlider
+export default UserCommentSlider;
