@@ -1,14 +1,18 @@
 "use client";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import RadioIcon from "../../components/RadioIcon";
 import TextInput from "../../components/TextInput";
 import Book from "./components/Book";
 import DateSelect from "./components/DataSelect";
+import ResNavContext from "../contexts/resNavContext";
 
 const InformationCompletion = () => {
   const [sex, setSex] = useState<"male" | "female">("male");
   const [book1, setBook1] = useState<boolean>(false);
   const [book2, setBook2] = useState<boolean>(false);
+  const [fullName, setFullName] = useState("");
+  const { dispatch } = useContext(ResNavContext);
+  dispatch("completeInfo");
   return (
     <>
       <div className="max-w-[984px]">
@@ -37,6 +41,7 @@ const InformationCompletion = () => {
         <div className="border-b py-[24px] gap-x-[24px] gap-y-[16px] flex flex-col md:flex-row ">
           <div className="w-full md:max-w-[312px]">
             <TextInput
+              onChange={() => setFullName}
               label="نام و نام‌خانوادگی*"
               placeholder="مثل: بردیا ادیبی"
             />

@@ -1,11 +1,14 @@
 "use client";
 import TextInput from "@/app/components/TextInput";
 import Link from "next/link";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import PhoneTextIcon from "./PhoneTextIcon";
+import ResNavContext from "../contexts/resNavContext";
 
 const ClassReservationRegister = () => {
   const [number, setNumber] = useState("");
+  const { dispatch } = useContext(ResNavContext);
+  dispatch("register");
   return (
     <div className="w-full h-screen md:max-w-[424px] flex flex-col">
       <PhoneTextIcon />

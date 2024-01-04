@@ -1,3 +1,6 @@
+"use client";
+import { useContext } from "react";
+import ResNavContext from "../contexts/resNavContext";
 import Book from "./Book";
 import Course from "./components/Course";
 import DiscountCode from "./components/DiscountCode";
@@ -5,6 +8,8 @@ import Expenses from "./components/Expenses";
 import Wallet from "./components/Wallet";
 
 const PayCheck = () => {
+  const { dispatch } = useContext(ResNavContext);
+  dispatch("check");
   return (
     <div className="w-full max-w-[984px]">
       <div className="w-full flex flex-col md:flex-row gap-[24px]">
