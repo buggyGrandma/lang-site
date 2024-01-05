@@ -6,9 +6,36 @@ import Image from 'next/image';
 import Link from 'next/link';
 import CourseLevel from './CourseLevel';
 import Button from '../components/Button';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import CourseLevelTable from './CourseLevelTable';
+import CourseLevelTableTr from './CourseLevelTableTr';
+
+interface Course {
+  title: string;
+  price: number;
+  levelLists: any;
+
+}
+
 const CourseLevelDetail: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const {data:courses,error,isLoading} = useQuery<Course[]>({
+    queryKey:['courses'],
+    queryFn: () => axios.get("https://dev.hamyarzaban.com/api/v1/Term/GetTerms").then(res => res.data)
+  })
+  // console.log(courses?.levelLists[0].terms[1].termNumber);
 
+  courses?.levelLists[0].terms.map((term:any) => {
+    console.log(term.termNumber);
+  });
+  
+  if(isLoading) {
+    return <div className='text-blue-800'>is loading</div>;
+  }
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
   const toggleAccordion = (index: number) => {
     setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
   };
@@ -16,140 +43,83 @@ const CourseLevelDetail: React.FC = () => {
   const levelData = [
     
     {
-        level: (<CourseLevel level="A1" textLevelEn="Basic" textLevelFa="پایه" description={"در طول این سطح، زبان‌آموزها می‌توانند عبارت‌های اساسی مربوط به اطلاعات شخصی، کارهای روزمره و.. را درک کرده و از آنها استفاده کنند. در این دوره کتاب American English File Starter تدریس می‌شود."}></CourseLevel>
+      level: (<CourseLevel id={courses?.levelLists[0].id} title={courses?.levelLists[0].title} level={courses?.levelLists[0].level} status={courses?.levelLists[0].status} introduction={courses?.levelLists[0].introduction} nearestTime={courses?.levelLists[0].nearestTime} imgSrc={courses?.levelLists[0].imgSrc} lowestPrice={courses?.levelLists[0].lowestPrice} leftCapacity={courses?.levelLists[0].terms[0].leftCapacity} ></CourseLevel>
       ),
       levelDetail: (
-        <table className='w-full text-black'>
-          <thead className='w-full bg-[#EDEDED]  text-center'>
-            <tr className=''>
-              <td className='py-4 text-[#808080] text-[13px] font-iranSans font-medium'>عنوان کلاس</td>
-              <td className='py-4 text-[#808080] text-[13px] font-iranSans font-medium'>کد کلاس</td>
-              <td className='py-4 text-[#808080] text-[13px] font-iranSans font-medium'>تعداد جلسات</td>
-              <td className='py-4 text-[#808080] text-[13px] font-iranSans font-medium'>زمان</td>
-              <td className='py-4 text-[#808080] text-[13px] font-iranSans font-medium'>نوع کلاس</td>
-              <td className='py-4 text-[#808080] text-[13px] font-iranSans font-medium'>شروع</td>
-              <td className='py-4 text-[#808080] text-[13px] font-iranSans font-medium'>هزینه</td>
-              <td className='py-4 text-[#808080] text-[13px] font-iranSans font-medium'>وضعیت</td>
-            </tr>
-          </thead>
-          <tbody className='text-center w-full bg-[#F8F8F8]'>
-            <tr>
-              <td className='text-[#282828] font-iranSans text-sm py-4'>کلاس گروهی Basic 1</td>
-              <td className='text-[#282828] font-iranSans text-sm py-4'>۹۹۹۹۲</td>
-              <td className='text-[#282828] font-iranSans text-sm py-4'>۱۳ جلسه</td>
-              <td className='text-[#282828] font-iranSans text-sm py-4'>یکشنبه - سه شنبه ساعت ۲۰:۰۰ - ۲۱:۳۰</td>
-              <td className='text-[#282828] font-iranSans text-sm py-4'>عادی(۶ هفته)</td>
-              <td className='text-[#282828] font-iranSans text-sm py-4'>۰۱ بهمن</td>
-              <td className='text-[#282828] font-iranSans text-sm py-4'>۶۸۰,۰۰۰ تومان</td>
-              <td className='text-[#282828] font-iranSans text-sm py-4 flex justify-center items-center'>
-                <div className='w-[112px] h-8'>
-                  <Button color='secondary'>ثبت نام</Button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td className='text-[#282828] font-iranSans text-sm py-4'>کلاس گروهی Basic 1</td>
-              <td className='text-[#282828] font-iranSans text-sm py-4'>۹۹۹۹۲</td>
-              <td className='text-[#282828] font-iranSans text-sm py-4'>۱۳ جلسه</td>
-              <td className='text-[#282828] font-iranSans text-sm py-4'>یکشنبه - سه شنبه ساعت ۲۰:۰۰ - ۲۱:۳۰</td>
-              <td className='text-[#282828] font-iranSans text-sm py-4'>عادی(۶ هفته)</td>
-              <td className='text-[#282828] font-iranSans text-sm py-4'>۰۱ بهمن</td>
-              <td className='text-[#282828] font-iranSans text-sm py-4'>۶۸۰,۰۰۰ تومان</td>
-              <td className='text-[#282828] font-iranSans text-sm py-4 flex justify-center items-center'>
-                <div className='w-[112px] h-8'>
-                  <Button color='secondary'>ثبت نام</Button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td className='text-[#282828] font-iranSans text-sm py-4'>کلاس گروهی Basic 1</td>
-              <td className='text-[#282828] font-iranSans text-sm py-4'>۹۹۹۹۲</td>
-              <td className='text-[#282828] font-iranSans text-sm py-4'>۱۳ جلسه</td>
-              <td className='text-[#282828] font-iranSans text-sm py-4'>یکشنبه - سه شنبه ساعت ۲۰:۰۰ - ۲۱:۳۰</td>
-              <td className='text-[#282828] font-iranSans text-sm py-4'>عادی(۶ هفته)</td>
-              <td className='text-[#282828] font-iranSans text-sm py-4'>۰۱ بهمن</td>
-              <td className='text-[#282828] font-iranSans text-sm py-4'>۶۸۰,۰۰۰ تومان</td>
-              <td className='text-[#282828] font-iranSans text-sm py-4 flex justify-center items-center'>
-                <div className='w-[112px] h-8'>
-                  <Button color='secondary'>ثبت نام</Button>
-                </div>
-              </td>
-            </tr>         
-          </tbody>
-        </table>
-      ),
-    },
-
-    {
-        level: (
-        
-            <CourseLevel level="A2" textLevelEn="Elementary" textLevelFa="مبتدی" description={"در طول این سطح، زبان‌آموزها می‌توانند گفتگوهایی ساده‌ در مورد موضوع‌های آشنا انجام دهند و مکالمات مربوط به خرید و جغرافیای محلی را درک کنند. در این دوره کتاب American English File 1 تدریس می‌شود."}></CourseLevel>
-            
-      ),
-      levelDetail: (
-        <p>
-          تمام کلاس‌های گروهی همیارزبان به صورت آنلاین و در پلتفرم زوم برگزار می‌شوند. برای بهتر برگزار شدن کلاس‌ها، پیشنهاد می‌شود نرم افزار زوم را بر روی سیستم‌های شخصی یا گوشی موبایل‌تان نصب داشته باشید. فقط کافی است راس ساعت تعیین شده برای هر جلسه از طریق پروفایل‌تان وارد کلاس شوید و از یادگیری زبان انگلیسی لذت ببرید.
-          {' '}<br></br>
-          <Link href="https://zoom.us/download" className='text-[#0d6efd]'>دانلود zoom</Link>
-        </p>
-      ),
-    },
-
-    {
-        level: ( <CourseLevel level="B1" textLevelEn="Pre-Intermediate" textLevelFa="نسبتا متوسط" description={"در طول این سطح، زبان‌آموزها می‌توانند در گفتگوها و بحث‌های پیچیده‌تری شرکت کنند و نکته‌های اصلی و اساسی مکالمه را به راحتی متوجه شوند. در این دوره کتاب American English File 2 تدریس می‌شود."}></CourseLevel>
-     
-      ),
-      levelDetail: (
-        <p>
-          تمام کلاس‌های گروهی همیارزبان به صورت آنلاین و در پلتفرم زوم برگزار می‌شوند. برای بهتر برگزار شدن کلاس‌ها، پیشنهاد می‌شود نرم افزار زوم را بر روی سیستم‌های شخصی یا گوشی موبایل‌تان نصب داشته باشید. فقط کافی است راس ساعت تعیین شده برای هر جلسه از طریق پروفایل‌تان وارد کلاس شوید و از یادگیری زبان انگلیسی لذت ببرید.
-          {' '}<br></br>
-          <Link href="https://zoom.us/download" className='text-[#0d6efd]'>دانلود zoom</Link>
-        </p>
+    <div>
+      <CourseLevelTable>
+          {courses?.levelLists[0].terms.map((term:any) => 
+        <CourseLevelTableTr titleName={term.titleName} termNumber={term.termNumber} sectionCount={term.sectionCount} timePeriod={term.timePeriod} length={term.length} startDateString={term.startDateString} price={term.price} status={'ثبت نام'}></CourseLevelTableTr>
+     )}
+      </CourseLevelTable>
+    </div>
       ),
     },
     {
-        level: (
-            <CourseLevel level="B2" textLevelEn="Intermediate" textLevelFa="متوسط" description={"در طول این سطح، زبان‌آموزها می‌توانند درمکالمه‌ها در مورد طیف گسترده‌ای از مطالب شرکت کنند ومتن‌های پیچیده را درک کنند و به‌ شکل موثر با افراد بومی ارتباط برقرار کنند. در این دوره کتاب American English File 3 تدریس می‌شود."}></CourseLevel>
-
+      level: (<CourseLevel id={courses?.levelLists[1].id} title={courses?.levelLists[1].title} level={courses?.levelLists[1].level} status={courses?.levelLists[1].status} introduction={courses?.levelLists[1].introduction} nearestTime={courses?.levelLists[1].nearestTime} imgSrc={courses?.levelLists[1].imgSrc} lowestPrice={courses?.levelLists[1].lowestPrice} leftCapacity={courses?.levelLists[0].terms[1].leftCapacity} ></CourseLevel>
       ),
       levelDetail: (
-        <p>
-          تمام کلاس‌های گروهی همیارزبان به صورت آنلاین و در پلتفرم زوم برگزار می‌شوند. برای بهتر برگزار شدن کلاس‌ها، پیشنهاد می‌شود نرم افزار زوم را بر روی سیستم‌های شخصی یا گوشی موبایل‌تان نصب داشته باشید. فقط کافی است راس ساعت تعیین شده برای هر جلسه از طریق پروفایل‌تان وارد کلاس شوید و از یادگیری زبان انگلیسی لذت ببرید.
-          {' '}<br></br>
-          <Link href="https://zoom.us/download" className='text-[#0d6efd]'>دانلود zoom</Link>
-        </p>
+        <div>
+          <CourseLevelTable>
+            {courses?.levelLists[1].terms.map((term:any) => 
+           <CourseLevelTableTr titleName={term.titleName} termNumber={term.termNumber} sectionCount={term.sectionCount} timePeriod={term.timePeriod} length={term.length} startDateString={term.startDateString} price={term.price} status={'ثبت نام'}></CourseLevelTableTr>
+       )}
+          </CourseLevelTable>
+        </div>
       ),
     },
     {
-        level: (
-            <CourseLevel level="C1" textLevelEn="Upper-Intermediate" textLevelFa="نسبتا پیشرفته" description={"در طول این سطح، زبان‌آموزها می‌توانند به طور موثر برای اهداف آکادمیک و حرفه‌ای از دانش زبانی خود استفاده کنند و با دقت بالا در تمامی بحث ها شرکت کنند. در این دوره کتاب American English File 4 تدریس می‌شود."}></CourseLevel>
-
+      level: (<CourseLevel id={courses?.levelLists[2].id} title={courses?.levelLists[2].title} level={courses?.levelLists[2].level} status={courses?.levelLists[2].status} introduction={courses?.levelLists[2].introduction} nearestTime={courses?.levelLists[2].nearestTime} imgSrc={courses?.levelLists[2].imgSrc} lowestPrice={courses?.levelLists[2].lowestPrice} leftCapacity={courses?.levelLists[0].terms[2].leftCapacity} ></CourseLevel>
       ),
       levelDetail: (
-        <p>
-          تمام کلاس‌های گروهی همیارزبان به صورت آنلاین و در پلتفرم زوم برگزار می‌شوند. برای بهتر برگزار شدن کلاس‌ها، پیشنهاد می‌شود نرم افزار زوم را بر روی سیستم‌های شخصی یا گوشی موبایل‌تان نصب داشته باشید. فقط کافی است راس ساعت تعیین شده برای هر جلسه از طریق پروفایل‌تان وارد کلاس شوید و از یادگیری زبان انگلیسی لذت ببرید.
-          {' '}<br></br>
-          <Link href="https://zoom.us/download" className='text-[#0d6efd]'>دانلود zoom</Link>
-        </p>
+        <div>
+        <CourseLevelTable>
+            {courses?.levelLists[2].terms.map((term:any) => 
+          <CourseLevelTableTr titleName={term.titleName} termNumber={term.termNumber} sectionCount={term.sectionCount} timePeriod={term.timePeriod} length={term.length} startDateString={term.startDateString} price={term.price} status={'ثبت نام'}></CourseLevelTableTr>
+       )}
+        </CourseLevelTable>
+      </div>
       ),
     },
     {
-        level: (
-            <CourseLevel level="C2" textLevelEn="Advanced" textLevelFa="پیشرفته" description={"این بالاترین سطح مهارت آموزش زبان است. زبان آموزها می‌توانند هر چیزی را که می‌خوانند یا می‌شنوند، حتی در زمینه‌های پیچیده، آکادمیک و انتزاعی درک کنند.در این دوره کتاب American English File 5 تدریس می‌شود."}></CourseLevel>
-
+      level: (<CourseLevel id={courses?.levelLists[3].id} title={courses?.levelLists[3].title} level={courses?.levelLists[3].level} status={courses?.levelLists[3].status} introduction={courses?.levelLists[3].introduction} nearestTime={courses?.levelLists[3].nearestTime} imgSrc={courses?.levelLists[3].imgSrc} lowestPrice={courses?.levelLists[3].lowestPrice} leftCapacity={courses?.levelLists[0].terms[3].leftCapacity} ></CourseLevel>
       ),
       levelDetail: (
-        <p>
-          تمام کلاس‌های گروهی همیارزبان به صورت آنلاین و در پلتفرم زوم برگزار می‌شوند. برای بهتر برگزار شدن کلاس‌ها، پیشنهاد می‌شود نرم افزار زوم را بر روی سیستم‌های شخصی یا گوشی موبایل‌تان نصب داشته باشید. فقط کافی است راس ساعت تعیین شده برای هر جلسه از طریق پروفایل‌تان وارد کلاس شوید و از یادگیری زبان انگلیسی لذت ببرید.
-          {' '}<br></br>
-          <Link href="https://zoom.us/download" className='text-[#0d6efd]'>دانلود zoom</Link>
-        </p>
+        <div>
+        <CourseLevelTable>
+            {courses?.levelLists[3].terms.map((term:any) => 
+          <CourseLevelTableTr titleName={term.titleName} termNumber={term.termNumber} sectionCount={term.sectionCount} timePeriod={term.timePeriod} length={term.length} startDateString={term.startDateString} price={term.price} status={'ثبت نام'}></CourseLevelTableTr>
+       )}
+        </CourseLevelTable>
+      </div>
       ),
     },
-
-
-          
-   
+    {
+      level: (<CourseLevel id={courses?.levelLists[4].id} title={courses?.levelLists[4].title} level={courses?.levelLists[4].level} status={courses?.levelLists[4].status} introduction={courses?.levelLists[4].introduction} nearestTime={courses?.levelLists[4].nearestTime} imgSrc={courses?.levelLists[4].imgSrc} lowestPrice={courses?.levelLists[4].lowestPrice} leftCapacity={courses?.levelLists[0].terms[4].leftCapacity} ></CourseLevel>
+      ),
+      levelDetail: (
+        <div>
+        <CourseLevelTable>
+            {courses?.levelLists[4].terms.map((term:any) => 
+          <CourseLevelTableTr titleName={term.titleName} termNumber={term.termNumber} sectionCount={term.sectionCount} timePeriod={term.timePeriod} length={term.length} startDateString={term.startDateString} price={term.price} status={'ثبت نام'}></CourseLevelTableTr>
+       )}
+        </CourseLevelTable>
+      </div>
+      ),
+    },
+    {
+      level: (<CourseLevel id={courses?.levelLists[5].id} title={courses?.levelLists[5].title} level={courses?.levelLists[5].level} status={courses?.levelLists[5].status} introduction={courses?.levelLists[5].introduction} nearestTime={courses?.levelLists[5].nearestTime} imgSrc={courses?.levelLists[5].imgSrc} lowestPrice={courses?.levelLists[5].lowestPrice} leftCapacity={courses?.levelLists[0].terms[5].leftCapacity} ></CourseLevel>
+      ),
+      levelDetail: (
+        <div>
+        <CourseLevelTable>
+            {courses?.levelLists[5].terms.map((term:any) => 
+          <CourseLevelTableTr titleName={term.titleName} termNumber={term.termNumber} sectionCount={term.sectionCount} timePeriod={term.timePeriod} length={term.length} startDateString={term.startDateString} price={term.price} status={'ثبت نام'}></CourseLevelTableTr>
+       )}
+        </CourseLevelTable>
+      </div>
+      ),
+    },   
   ];
 
   return (
@@ -164,8 +134,6 @@ const CourseLevelDetail: React.FC = () => {
                   <p className='text-black text-sm font-medium'>مشاهده کلاس‌ها </p>
                 </Button>
             </div>
-
-
           </button>
           {activeIndex === index && <div className='mb-6 mx-6 rounded-lg py-4 '>
            {detail.levelDetail}</div>}

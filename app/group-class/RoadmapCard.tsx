@@ -1,6 +1,13 @@
 import React from 'react'
 
-function RoadmapCard() {
+interface RoadmapCardProps {
+  // title: string,
+  // level:string,
+  // term:string,
+
+}
+
+const RoadmapCard:React.FC<RoadmapCardProps> = () => {
   return (
     <div className='flex flex-col w-[31%] lg-max:w-full bg-white/60 rounded-[20px] backdrop-blur-[49.5px] border border-[#0051b5]/[0.13] pb-7 pl-4'>
         <div className='flex justify-center items-center mx-auto bg-[#E9F0F8] py-2 px-8 w-[6.5rem] rounded-b-[10px] '>
@@ -25,7 +32,7 @@ function RoadmapCard() {
  
           </div>
           <div className='w-[4rem] h-[4rem] rounded-[20px] bg-[#0052B5]/[0.10] ml flex justify-center items-center'>
-            <p className='text-[#509CF9] font-extrabold text-[1.75rem]'>A1</p>
+            <p className='text-[#509CF9] font-extrabold text-[1.75rem] text-center mt-1'>A1</p>
           </div>
 
         </div>

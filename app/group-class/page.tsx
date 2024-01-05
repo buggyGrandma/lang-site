@@ -31,9 +31,7 @@ import HamburgerMenu from "../components/HamburgerMenu";
 
 const groupClass = () => {
   return (
-    <main className="bg-[#F8F8FB] w-full overflow-x-hidden">
-      <Navbar></Navbar>
-      <HamburgerMenu></HamburgerMenu>
+    <>
       <section className="w-full  bg-[#212121] relative pb-4">
         <div className="absolute left-0 top-[-9.5rem]">
           <Image src={circles} alt="left circles" width={625} height={534}></Image>
@@ -94,18 +92,6 @@ const groupClass = () => {
           </div>
           <div className="flex flex-col gap-y-4 ">
             <CourseLevelDetail></CourseLevelDetail>
-            {/* <CourseLevel level="A1" textLevelEn="Basic" textLevelFa="پایه" description={"در طول این سطح، زبان‌آموزها می‌توانند عبارت‌های اساسی مربوط به اطلاعات شخصی، کارهای روزمره و.. را درک کرده و از آنها استفاده کنند. در این دوره کتاب American English File Starter تدریس می‌شود."}></CourseLevel>
-            
-            <CourseLevel level="A2" textLevelEn="Elementary" textLevelFa="مبتدی" description={"در طول این سطح، زبان‌آموزها می‌توانند گفتگوهایی ساده‌ در مورد موضوع‌های آشنا انجام دهند و مکالمات مربوط به خرید و جغرافیای محلی را درک کنند. در این دوره کتاب American English File 1 تدریس می‌شود."}></CourseLevel>
-
-            <CourseLevel level="B1" textLevelEn="Pre-Intermediate" textLevelFa="نسبتا متوسط" description={"در طول این سطح، زبان‌آموزها می‌توانند در گفتگوها و بحث‌های پیچیده‌تری شرکت کنند و نکته‌های اصلی و اساسی مکالمه را به راحتی متوجه شوند. در این دوره کتاب American English File 2 تدریس می‌شود."}></CourseLevel>
-            
-            <CourseLevel level="B2" textLevelEn="Intermediate" textLevelFa="متوسط" description={"در طول این سطح، زبان‌آموزها می‌توانند درمکالمه‌ها در مورد طیف گسترده‌ای از مطالب شرکت کنند ومتن‌های پیچیده را درک کنند و به‌ شکل موثر با افراد بومی ارتباط برقرار کنند. در این دوره کتاب American English File 3 تدریس می‌شود."}></CourseLevel>
-
-            <CourseLevel level="C1" textLevelEn="Upper-Intermediate" textLevelFa="نسبتا پیشرفته" description={"در طول این سطح، زبان‌آموزها می‌توانند به طور موثر برای اهداف آکادمیک و حرفه‌ای از دانش زبانی خود استفاده کنند و با دقت بالا در تمامی بحث ها شرکت کنند. در این دوره کتاب American English File 4 تدریس می‌شود."}></CourseLevel>
-
-            <CourseLevel level="C2" textLevelEn="Advanced" textLevelFa="پیشرفته" description={"این بالاترین سطح مهارت آموزش زبان است. زبان آموزها می‌توانند هر چیزی را که می‌خوانند یا می‌شنوند، حتی در زمینه‌های پیچیده، آکادمیک و انتزاعی درک کنند.در این دوره کتاب American English File 5 تدریس می‌شود."}></CourseLevel> */}
-
           </div>
         </section>
 
@@ -247,7 +233,7 @@ const groupClass = () => {
         <section className="pb-[3.25rem] px-[6.5rem] lg-max:px-8">
           <DescriptionText></DescriptionText>
         </section>
-        <Footer></Footer>
+        
         <section className="flex justify-between py-4 fixed bottom-0 bg-white w-full px-[6.5rem] z-50 lg-max:hidden">
           <div className="flex gap-x-10 items-center lg-max:hidden">
             <Link href={"#courses"} className="text-[#818181] hover:text-[#2E2E2E]" >کلاس های گروهی انگلیسی</Link>
@@ -266,7 +252,7 @@ const groupClass = () => {
           </div>
         </section>
       </div>
-    </main>
+      </>
   );
 };
 
