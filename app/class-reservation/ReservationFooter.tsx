@@ -2,7 +2,7 @@ import Button from "../components/Button";
 
 const ReservationFooter = () => {
   return (
-    <div className="p-4 bottom-0 bg-white border-t py-[24px] flex justify-center">
+    <div className="p-4 fixed w-full bottom-0 bg-white border-t py-[24px] flex justify-center">
       <div className="w-full max-w-[984px] flex items-center justify-between">
         <div className="flex flex-col">
           <div className="mb-[19px] text-[#5A5A5A] text-[12px] font-normal">
