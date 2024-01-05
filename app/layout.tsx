@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
+import QueryClientProvider from "./QueryClientProvider";
 
 const iranSans = localFont({
   src: "../public/fonts/iranSans.ttf",
@@ -27,11 +28,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa" dir="rtl">
+      <QueryClientProvider>
       <body
         className={`${iranSans.variable} ${iranSansBold.variable} ${roboto.variable} ${iranSans.className}`}
       >
         {children}
       </body>
+      </QueryClientProvider>
     </html>
   );
 }
