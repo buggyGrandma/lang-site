@@ -1,20 +1,27 @@
-'use client'
-import React, { useState } from 'react';
-import commaIcon from '@/public/images/userCommentSlider/comma.svg'
-import Image from 'next/image';
-import axios from 'axios';
-import { useQuery } from '@tanstack/react-query';
+"use client";
+import React, { useState } from "react";
+import commaIcon from "@/public/images/userCommentSlider/comma.svg";
+import Image from "next/image";
+import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
 
 interface Comments {
-name: string,
-comment: string
+  name: string;
+  comment: string;
 }
 
 const UserCommentSlider: React.FC = () => {
-  const {data:courses,error,isLoading} = useQuery<Comments[]>({
-    queryKey:['courses'],
-    queryFn: () => axios.get("https://dev.hamyarzaban.com/api/v1/Term/GetTerms").then(res => res.data)
-  })
+  const {
+    data: courses,
+    error,
+    isLoading,
+  } = useQuery<Comments[]>({
+    queryKey: ["courses"],
+    queryFn: () =>
+      axios
+        .get("https://dev.hamyarzaban.com/api/v1/Term/GetTerms")
+        .then((res) => res.data),
+  });
   console.log(courses?.comments[0].name);
   const [activeIndex, setActiveIndex] = useState(0);
   // if(isLoading) {
@@ -23,37 +30,56 @@ const UserCommentSlider: React.FC = () => {
   // if (error) {
   //   return <div>Error: {error.message}</div>;
   // }
-  
+
   const commentsArr = [
-    <div key={0} className='w-full p-8 flex flex-col gap-y-4 shadow-whiteCustom'>
-        <div className='flex justify-end items-center  gap-x-20'>
-            <h3 className='text-black text-base font-medium font-iranSans text-center'>{courses?.comments[0].name}</h3>
-            <Image src={commaIcon} alt='comma icon' width={60} ></Image>
-        </div>
-       <div className='py-4 px-8'>
-        <p className='text-[#818181] text-sm leading-6 font-iranSans font-normal text-center '>{courses?.comments[0].comment}</p>
-       </div> 
+    <div
+      key={0}
+      className="w-full p-8 flex flex-col gap-y-4 shadow-whiteCustom"
+    >
+      <div className="flex justify-end items-center  gap-x-20">
+        <h3 className="text-black text-base font-medium font-iranSans text-center">
+          {courses?.comments[0].name}
+        </h3>
+        <Image src={commaIcon} alt="comma icon" width={60}></Image>
+      </div>
+      <div className="py-4 px-8">
+        <p className="text-[#818181] text-sm leading-6 font-iranSans font-normal text-center ">
+          {courses?.comments[0].comment}
+        </p>
+      </div>
     </div>,
-    <div key={1} className='w-full p-8 flex flex-col gap-y-4 shadow-whiteCustom'>
-        <div className='flex justify-end items-center  gap-x-20'>
-            <h3 className='text-black text-base font-medium font-iranSans text-center'>{courses?.comments[1].name}</h3>
-            <Image src={commaIcon} alt='comma icon' width={60} ></Image>
-        </div>
-       <div className='py-4 px-8'>
-        <p className='text-[#818181] text-sm leading-6 font-iranSans font-normal text-center '>{courses?.comments[1].comment}</p>
-       </div> 
+    <div
+      key={1}
+      className="w-full p-8 flex flex-col gap-y-4 shadow-whiteCustom"
+    >
+      <div className="flex justify-end items-center  gap-x-20">
+        <h3 className="text-black text-base font-medium font-iranSans text-center">
+          {courses?.comments[1].name}
+        </h3>
+        <Image src={commaIcon} alt="comma icon" width={60}></Image>
+      </div>
+      <div className="py-4 px-8">
+        <p className="text-[#818181] text-sm leading-6 font-iranSans font-normal text-center ">
+          {courses?.comments[1].comment}
+        </p>
+      </div>
     </div>,
-    <div key={2} className='w-full p-8 flex flex-col gap-y-4 shadow-whiteCustom'>
-        <div className='flex justify-end items-center  gap-x-20'>
-            <h3 className='text-black text-base font-medium font-iranSans text-center'>{courses?.comments[2].name}</h3>
-            <Image src={commaIcon} alt='comma icon' width={60} ></Image>
-        </div>
-       <div className='py-4 px-8'>
-        <p className='text-[#818181] text-sm leading-6 font-iranSans font-normal text-center '>{courses?.comments[2].comment}</p>
-       </div> 
+    <div
+      key={2}
+      className="w-full p-8 flex flex-col gap-y-4 shadow-whiteCustom"
+    >
+      <div className="flex justify-end items-center  gap-x-20">
+        <h3 className="text-black text-base font-medium font-iranSans text-center">
+          {courses?.comments[2].name}
+        </h3>
+        <Image src={commaIcon} alt="comma icon" width={60}></Image>
+      </div>
+      <div className="py-4 px-8">
+        <p className="text-[#818181] text-sm leading-6 font-iranSans font-normal text-center ">
+          {courses?.comments[2].comment}
+        </p>
+      </div>
     </div>,
-    
-    
   ];
 
   const nextComment = () => {
@@ -61,12 +87,15 @@ const UserCommentSlider: React.FC = () => {
   };
 
   const prevComment = () => {
-    setActiveIndex((prevIndex) => (prevIndex - 1 + commentsArr.length) % commentsArr.length);
+    setActiveIndex(
+      (prevIndex) => (prevIndex - 1 + commentsArr.length) % commentsArr.length
+    );
   };
 
   return (
     <div className="relative">
-      <div className="text-center w-[28rem] lg-max:w-[91%] mx-auto bg-[#FAFAFA] lg-max:bg-white lg-max:rounded-[10px] mt-4 rounded-xl">{commentsArr[activeIndex]}
+      <div className="text-center w-[28rem] lg-max:w-[91%] mx-auto bg-[#FAFAFA] lg-max:bg-white lg-max:rounded-[10px] mt-4 rounded-xl">
+        {commentsArr[activeIndex]}
       </div>
       <div className="flex w-full justify-center items-center gap-x-2 space-x-2">
         <button
@@ -93,11 +122,14 @@ const UserCommentSlider: React.FC = () => {
           <div
             key={index}
             className={`w-10 h-1 mt-10 lg-max:mt-4 mx-auto rounded-[29px] ${
-              index === activeIndex ? 'bg-[#0CAC67]' : 'bg-[#E1E1E1]'
+              index === activeIndex ? "bg-[#0CAC67]" : "bg-[#E1E1E1]"
             }`}
           />
         ))}
-        <button onClick={nextComment} className="lg-max:hidden group absolute top-1/3 left-[9.5rem] w-14 h-14 flex justify-center items-center rounded-full bg-white hover:bg-[#0CAC67] transition-colors duration-300">
+        <button
+          onClick={nextComment}
+          className="lg-max:hidden group absolute top-1/3 left-[9.5rem] w-14 h-14 flex justify-center items-center rounded-full bg-white hover:bg-[#0CAC67] transition-colors duration-300"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -113,12 +145,10 @@ const UserCommentSlider: React.FC = () => {
               className="text-[#1C274C] group-hover:text-white"
             />
           </svg>
-          
         </button>
       </div>
-      
     </div>
   );
 };
 
-export default UserCommentSlider
+export default UserCommentSlider;

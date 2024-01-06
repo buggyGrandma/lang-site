@@ -8,20 +8,18 @@
   --background-end-rgb: 255, 255, 255;
 } */
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
+} */
 * {
-box-sizing: border-box;
+  box-sizing: border-box;
 }
 body {
-  color: rgb(var(--foreground-rgb));
-  
-  
+  /* color: rgb(var(--foreground-rgb)); */
 }
 
 .text-fill-title {
@@ -31,6 +29,6 @@ body {
 }
 
 .yellow-gradient-box {
-background: linear-gradient(180deg, #FFCC68 0%, #FFD98F 100%);
-box-shadow: 0px 12px 10px 0px rgba(255, 204, 104, 0.10);
+  background: linear-gradient(180deg, #ffcc68 0%, #ffd98f 100%);
+  box-shadow: 0px 12px 10px 0px rgba(255, 204, 104, 0.1);
 }
