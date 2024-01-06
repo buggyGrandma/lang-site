@@ -1,27 +1,20 @@
 import Image from "next/image";
-import React from "react";
 
 interface AdvantageCardProps {
   title: string;
   text: string;
-  imageUrl: string;
+  children: React.ReactNode;
 }
 
 const AdvantageCard: React.FC<AdvantageCardProps> = ({
   title,
   text,
-  imageUrl,
+  children,
 }) => {
   return (
     <div className="flex flex-col gap-y-4 w-[24rem] lg-max:w-[70%] lg-max:mx-4 items-start justify-center py-8 px-6 lg-max:px-4 lg-max:py-4 bg-white rounded">
       <div className="flex items-center justify-center">
-        <Image
-          src={imageUrl}
-          alt={title}
-          width={83}
-          height={65}
-          className="lg-max:w-[41px] lg-max:h-[31px]"
-        />
+        {children}
         <h3 className="text-[#282828] text-xl font-bold lg-max:text-sm lg-max:font-medium">
           {title}
         </h3>
