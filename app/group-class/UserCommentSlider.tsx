@@ -19,7 +19,7 @@ const UserCommentSlider: React.FC = () => {
     queryKey: ["courses"],
     queryFn: () =>
       axios
-        .get("https://dev.hamyarzaban.com/api/v1/Term/GetTerms")
+        .get("https://api.hamyarzaban.com/api/v1/Term/GetTerms")
         .then((res) => res.data),
   });
   console.log(courses?.comments[0].name);

@@ -21,12 +21,14 @@ interface Props {
     | "error"
     | "disabled";
   direction?: "left" | "right" | "up" | "down";
+  buttonAction?: number;
   onClick?: () => void;
 }
 
 const Button = ({
   children,
   color,
+  buttonAction,
   direction = "down",
   arrowposition = "left",
   arrow = false,

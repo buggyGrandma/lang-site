@@ -26,14 +26,14 @@ const CourseLevelDetail: React.FC = () => {
     queryKey: ["courses"],
     queryFn: () =>
       axios
-        .get("https://dev.hamyarzaban.com/api/v1/Term/GetTerms")
+        .get("https://api.hamyarzaban.com/api/v1/Term/GetTerms")
         .then((res) => res.data),
   });
-  // console.log(courses?.levelLists[0].terms[1].termNumber);
+  console.log(courses?.levelLists[3].terms[1]);
 
-  courses?.levelLists[0].terms.map((term: any) => {
-    console.log(term.termNumber);
-  });
+  // courses?.levelLists[0].terms.map((term: any) => {
+  //   console.log(term.termNumber);
+  // });
 
   if (isLoading) {
     return <div className="text-blue-800">is loading</div>;
@@ -58,6 +58,7 @@ const CourseLevelDetail: React.FC = () => {
           imgSrc={courses?.levelLists[0].imgSrc}
           lowestPrice={courses?.levelLists[0].lowestPrice}
           leftCapacity={courses?.levelLists[0].terms[0].leftCapacity}
+          statusNumber={courses?.levelLists[0].statusNumber}
         ></CourseLevel>
       ),
       levelDetail: (
@@ -72,7 +73,9 @@ const CourseLevelDetail: React.FC = () => {
                 length={term.length}
                 startDateString={term.startDateString}
                 price={term.price}
-                status={"ثبت نام"}
+                status={term.buttonTitle}
+                buttonAction={term.buttonAction}
+                colorVariant={"default"}
               ></CourseLevelTableTr>
             ))}
           </CourseLevelTable>
@@ -91,6 +94,7 @@ const CourseLevelDetail: React.FC = () => {
           imgSrc={courses?.levelLists[1].imgSrc}
           lowestPrice={courses?.levelLists[1].lowestPrice}
           leftCapacity={courses?.levelLists[0].terms[1].leftCapacity}
+          statusNumber={courses?.levelLists[1].statusNumber}
         ></CourseLevel>
       ),
       levelDetail: (
@@ -105,7 +109,9 @@ const CourseLevelDetail: React.FC = () => {
                 length={term.length}
                 startDateString={term.startDateString}
                 price={term.price}
-                status={"ثبت نام"}
+                status={term.buttonTitle}
+                buttonAction={term.buttonAction}
+                colorVariant={"default"}
               ></CourseLevelTableTr>
             ))}
           </CourseLevelTable>
@@ -124,6 +130,7 @@ const CourseLevelDetail: React.FC = () => {
           imgSrc={courses?.levelLists[2].imgSrc}
           lowestPrice={courses?.levelLists[2].lowestPrice}
           leftCapacity={courses?.levelLists[0].terms[2].leftCapacity}
+          statusNumber={courses?.levelLists[2].statusNumber}
         ></CourseLevel>
       ),
       levelDetail: (
@@ -138,7 +145,9 @@ const CourseLevelDetail: React.FC = () => {
                 length={term.length}
                 startDateString={term.startDateString}
                 price={term.price}
-                status={"ثبت نام"}
+                status={term.buttonTitle}
+                buttonAction={term.buttonAction}
+                colorVariant={"default"}
               ></CourseLevelTableTr>
             ))}
           </CourseLevelTable>
@@ -157,6 +166,7 @@ const CourseLevelDetail: React.FC = () => {
           imgSrc={courses?.levelLists[3].imgSrc}
           lowestPrice={courses?.levelLists[3].lowestPrice}
           leftCapacity={courses?.levelLists[0].terms[3].leftCapacity}
+          statusNumber={courses?.levelLists[3].statusNumber}
         ></CourseLevel>
       ),
       levelDetail: (
@@ -171,7 +181,9 @@ const CourseLevelDetail: React.FC = () => {
                 length={term.length}
                 startDateString={term.startDateString}
                 price={term.price}
-                status={"ثبت نام"}
+                status={term.buttonTitle}
+                buttonAction={term.buttonAction}
+                colorVariant={"default"}
               ></CourseLevelTableTr>
             ))}
           </CourseLevelTable>
@@ -190,6 +202,7 @@ const CourseLevelDetail: React.FC = () => {
           imgSrc={courses?.levelLists[4].imgSrc}
           lowestPrice={courses?.levelLists[4].lowestPrice}
           leftCapacity={courses?.levelLists[0].terms[4].leftCapacity}
+          statusNumber={courses?.levelLists[4].statusNumber}
         ></CourseLevel>
       ),
       levelDetail: (
@@ -203,8 +216,10 @@ const CourseLevelDetail: React.FC = () => {
                 timePeriod={term.timePeriod}
                 length={term.length}
                 startDateString={term.startDateString}
-                price={term.price}
-                status={"ثبت نام"}
+                price={term.buttonTitle}
+                status={""}
+                buttonAction={term.buttonAction}
+                colorVariant={"default"}
               ></CourseLevelTableTr>
             ))}
           </CourseLevelTable>
@@ -223,6 +238,7 @@ const CourseLevelDetail: React.FC = () => {
           imgSrc={courses?.levelLists[5].imgSrc}
           lowestPrice={courses?.levelLists[5].lowestPrice}
           leftCapacity={courses?.levelLists[0].terms[5].leftCapacity}
+          statusNumber={courses?.levelLists[5].statusNumber}
         ></CourseLevel>
       ),
       levelDetail: (
@@ -237,7 +253,9 @@ const CourseLevelDetail: React.FC = () => {
                 length={term.length}
                 startDateString={term.startDateString}
                 price={term.price}
-                status={"ثبت نام"}
+                status={term.buttonTitle}
+                buttonAction={term.buttonAction}
+                colorVariant={"default"}
               ></CourseLevelTableTr>
             ))}
           </CourseLevelTable>

@@ -1,16 +1,21 @@
 "use client";
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import arrowDown from "@/public/images/faq/arrow-down.svg";
 import arrowUp from "@/public/images/faq/arrow-up.svg";
 import Image from "next/image";
 import Link from "next/link";
+import { useInView } from "react-intersection-observer";
 const Faq: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const toggleAccordion = (index: number) => {
     setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
   };
-
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
   const faqData = [
     {
       question: "کلاس های من چطوری برگزار می شوند؟",
@@ -50,7 +55,13 @@ const Faq: React.FC = () => {
   ];
 
   return (
-    <div className="w-[50%] lg-max:w-[91%] lg-max:mx-4 justify-center flex flex-col items-center mx-auto z-20 relative gap-y-6">
+    <motion.div
+      ref={ref}
+      initial={{ scale: 0 }}
+      animate={inView ? { scale: 1 } : { scale: 0 }}
+      transition={{ delay: 0.2, duration: 1, ease: "easeInOut" }}
+      className="w-[50%] lg-max:w-[91%] lg-max:mx-4 justify-center flex flex-col items-center mx-auto z-20 relative gap-y-6"
+    >
       {faqData.map((faq, index) => (
         <div key={index} className=" w-full rounded-xl bg-white">
           <button
@@ -73,7 +84,7 @@ const Faq: React.FC = () => {
           )}
         </div>
       ))}
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,4 +1,3 @@
-import React from "react";
 import Button from "../../components/Button";
 interface CourseLevelTableTrProps {
   titleName: string;
@@ -9,6 +8,8 @@ interface CourseLevelTableTrProps {
   startDateString: string;
   price: number;
   status: string;
+  buttonAction: number;
+  colorVariant: "secondary" | "primary" | "default";
 }
 const CourseLevelTableTr: React.FC<CourseLevelTableTrProps> = ({
   titleName,
@@ -19,7 +20,25 @@ const CourseLevelTableTr: React.FC<CourseLevelTableTrProps> = ({
   startDateString,
   price,
   status,
+  buttonAction,
+  colorVariant,
 }) => {
+  colorVariant = "primary";
+
+  switch (buttonAction) {
+    case 0:
+      colorVariant = "secondary";
+      break;
+    case 1:
+      colorVariant = "primary";
+      break;
+    case 2:
+      colorVariant = "default";
+      break;
+    default:
+      colorVariant = "primary";
+      break;
+  }
   return (
     <tbody className="text-center w-full bg-[#F8F8F8]">
       <tr>
@@ -31,8 +50,10 @@ const CourseLevelTableTr: React.FC<CourseLevelTableTrProps> = ({
         <td className="text-[#282828] text-sm py-4">{startDateString}</td>
         <td className="text-[#282828] text-sm py-4">{price} تومان</td>
         <td className="text-[#282828] text-sm py-4 flex justify-center items-center">
-          <div className="w-[112px] h-8">
-            <Button color="secondary">{status}</Button>
+          <div className="w-[140px] h-8">
+            <Button color={colorVariant} buttonAction={buttonAction}>
+              <p className="text-[0.85rem]">{status}</p>
+            </Button>
           </div>
         </td>
       </tr>

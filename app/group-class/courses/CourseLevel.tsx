@@ -2,6 +2,8 @@ import chartIcon from "@/public/images/courseLevel/Chart.svg";
 import calendarIcon from "@/public/images/courseLevel/Calendar.svg";
 import dollarIcon from "@/public/images/courseLevel/Dollar.svg";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 interface CourseLevelProps {
   id: string;
@@ -13,6 +15,7 @@ interface CourseLevelProps {
   imgSrc: string;
   lowestPrice: string;
   leftCapacity: string;
+  statusNumber: number;
 }
 const courseLevel: React.FC<CourseLevelProps> = ({
   id,
@@ -24,9 +27,38 @@ const courseLevel: React.FC<CourseLevelProps> = ({
   lowestPrice,
   status,
   leftCapacity,
+  statusNumber,
 }) => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+  let bgColorClass = "";
+  let colorClass = "";
+  switch (statusNumber) {
+    case 0:
+      bgColorClass = "bg-[#F3FBF7]";
+      colorClass = "text-[#0B9A5C]";
+      break;
+    case 1:
+      bgColorClass = "bg-[#f1f1f1]";
+      colorClass = "text-[#555]";
+      break;
+    case 2:
+      bgColorClass = "bg-[#fd4c5c1a]";
+      colorClass = "text-[#ff5454]";
+      break;
+    default:
+      bgColorClass = "bg-[#F3FBF7]";
+      colorClass = "text-[#0B9A5C]";
+      break;
+  }
   return (
-    <div
+    <motion.div
+      ref={ref}
+      initial={{ scale: 0 }}
+      animate={inView ? { scale: 1 } : { scale: 0 }}
+      transition={{ delay: 0.2, duration: 1, ease: "easeInOut" }}
       id={id}
       className="bg-white z-30 rounded w-full relative py-4 px-6 lg-max:px-0 flex justify-start items-center gap-x-6 "
     >
@@ -37,7 +69,9 @@ const courseLevel: React.FC<CourseLevelProps> = ({
         <div className="flex flex-col gap-y-1 w-[50%] lg-max:w-full">
           <div className="flex items-center gap-x-4">
             <h2 className="text-lg font-bold text-[#282828]">{title}</h2>
-            <div className="text-[#0B9A5C] text-sm py-1 px-3 leading-4 bg-[#F3FBF7] rounded-[2.5rem] lg-max:hidden">
+            <div
+              className={`${colorClass} text-sm py-1 px-3 leading-4 ${bgColorClass} rounded-[2.5rem] lg-max:hidden`}
+            >
               {status}
             </div>
           </div>
@@ -97,7 +131,7 @@ const courseLevel: React.FC<CourseLevelProps> = ({
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

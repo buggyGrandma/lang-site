@@ -1,11 +1,15 @@
-import React from "react";
-import Button from "../../components/Button";
+import { motion } from "framer-motion";
 
 interface CourseLevelTableProps {}
 
 const CourseLevelTable = ({ children }: { children: React.ReactNode }) => {
   return (
-    <table className="w-full text-black">
+    <motion.table
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+      className="w-full text-black"
+    >
       <thead className="w-full bg-[#EDEDED]  text-center">
         <tr className="">
           <td className="py-4 text-[#808080] text-[13px] font-medium">
@@ -27,7 +31,7 @@ const CourseLevelTable = ({ children }: { children: React.ReactNode }) => {
         </tr>
       </thead>
       {children}
-    </table>
+    </motion.table>
   );
 };
 
