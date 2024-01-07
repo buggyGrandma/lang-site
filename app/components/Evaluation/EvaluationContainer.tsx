@@ -1,5 +1,5 @@
 "use client";
-import CloseIcon from "@/app/evaluation/assets/Close";
+import CloseIcon from "./assets/Close";
 import EvaluationContent from "./EvaluationContent";
 import { useState } from "react";
 import EvaluationExam from "./EvaluationExam";
@@ -7,10 +7,8 @@ import EvaluationExam from "./EvaluationExam";
 // const IRANSans = localFont({
 //   src: "../../assets/fonts/FontsFree-Net-ir_sans.ttf ",
 // });
-interface Props extends React.PropsWithChildren {
-  show: boolean;
-}
-const EvaluationContainer = ({ children, show }: Props) => {
+
+const EvaluationContainer = ({ show }: { show: boolean }) => {
   const [page, setPage] = useState<"start" | "exam">("start");
   return (
     <div

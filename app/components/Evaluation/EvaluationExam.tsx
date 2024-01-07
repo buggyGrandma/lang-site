@@ -1,4 +1,4 @@
-import EvaluationQuestion from "@/app/evaluation/evaluation-exam/EvaluationQuestion";
+import EvaluationQuestion from "./evaluation-exam/EvaluationQuestion";
 
 const EvaluationExam = () => {
   return (

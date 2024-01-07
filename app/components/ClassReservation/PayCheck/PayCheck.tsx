@@ -1,9 +1,9 @@
-import ResNavContext from "@/app/class-reservation/contexts/resNavContext";
-import Book from "@/app/class-reservation/paycheck/Book";
-import Course from "@/app/class-reservation/paycheck/components/Course";
-import DiscountCode from "@/app/class-reservation/paycheck/components/DiscountCode";
-import Expenses from "@/app/class-reservation/paycheck/components/Expenses";
-import Wallet from "@/app/class-reservation/paycheck/components/Wallet";
+import ResNavContext from "@/app/components/ClassReservation/contexts/resNavContext";
+import Book from "./Book";
+import Course from "./components/Course";
+import DiscountCode from "./components/DiscountCode";
+import Expenses from "./components/Expenses";
+import Wallet from "./components/Wallet";
 import { useContext } from "react";
 
 const PayCheck = () => {

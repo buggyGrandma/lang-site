@@ -1,6 +1,6 @@
-import ResNavContext from "@/app/class-reservation/contexts/resNavContext";
-import DateSelect from "@/app/class-reservation/information-completion/components/DataSelect";
-import Book from "@/app/class-reservation/information-completion/components/Book";
+import ResNavContext from "@/app/components/ClassReservation/contexts/resNavContext";
+import DateSelect from "./components/DataSelect";
+import Book from "./components/Book";
 import React, { useContext, useState } from "react";
 import RadioIcon from "../../RadioIcon";
 import TextInput from "../../TextInput";

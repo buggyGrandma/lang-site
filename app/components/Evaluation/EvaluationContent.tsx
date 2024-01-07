@@ -1,6 +1,6 @@
-import Note from "@/app/evaluation/Note";
-import PictuerMD from "@/app/evaluation/assets/PictuerMD";
-import PictureSM from "@/app/evaluation/assets/PictureSM";
+import Note from "@/app/components/Evaluation/Note";
+import PictuerMD from "./assets/PictuerMD";
+import PictureSM from "./assets/PictureSM";
 import Button from "../Button";
 
 const EvaluationContent = ({

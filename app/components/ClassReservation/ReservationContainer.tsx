@@ -1,7 +1,7 @@
-import ReservationFooter from "@/app/class-reservation/ReservationFooter";
-import ReservationHeader from "@/app/class-reservation/ReservationHeader";
-import ResNavContext from "@/app/class-reservation/contexts/resNavContext";
-import reservationReducer from "@/app/class-reservation/reducers/reservationReducer";
+import ReservationFooter from "./ReservationFooter";
+import ReservationHeader from "./ReservationHeader";
+import ResNavContext from "@/app/components/ClassReservation/contexts/resNavContext";
+import reservationReducer from "@/app/components/ClassReservation/reducers/reservationReducer";
 import { useReducer } from "react";
 import Register from "./Register/Register";
 import CompleteInfo from "./CompleteInfo/CompleteInfo";

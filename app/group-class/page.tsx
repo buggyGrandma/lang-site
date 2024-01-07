@@ -40,7 +40,7 @@ const groupClass = () => {
       <Navbar></Navbar>
       <HamburgerMenu></HamburgerMenu>
       <EvaluationContainer show={evaluation} />
-      <ReservationContainer show={classReserve} checkPoint="register" />
+      <ReservationContainer show={classReserve} checkPoint="check" />
       <section className="w-full  bg-[#212121] relative pb-4">
         <div className="absolute left-0 top-[-9.5rem]">
           <Image

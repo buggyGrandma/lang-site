@@ -1,5 +1,5 @@
-import ResNavContext from "@/app/class-reservation/contexts/resNavContext";
-import PhoneTextIcon from "@/app/class-reservation/register/PhoneTextIcon";
+import ResNavContext from "@/app/components/ClassReservation/contexts/resNavContext";
+import PhoneTextIcon from "@/app/components/ClassReservation/Register/PhoneTextIcon";
 import Link from "next/link";
 import React, { useContext, useState } from "react";
 import TextInput from "../../TextInput";

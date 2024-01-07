@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import ReservationNav from "./ReservationNav";
-import CloseButton from "./information-completion/components/DataSelect/CloseButton";
-import MobileCloseButton from "./information-completion/components/DataSelect/MobileCloseButton";
+import CloseButton from "./CompleteInfo/components/DataSelect/CloseButton";
+import MobileCloseButton from "./CompleteInfo/components/DataSelect/MobileCloseButton";
 import ResNavContext from "./contexts/resNavContext";
 
 const ReservationHeader = () => {
