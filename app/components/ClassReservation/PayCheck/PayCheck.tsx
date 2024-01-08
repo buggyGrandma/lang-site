@@ -1,4 +1,4 @@
-import ResNavContext from "@/app/components/ClassReservation/contexts/resNavContext";
+import ResNavContext from "@/app/group-class/contexts/resNavContext";
 import Book from "./Book";
 import Course from "./components/Course";
 import DiscountCode from "./components/DiscountCode";

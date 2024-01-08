@@ -1,8 +1,8 @@
 "use client";
 import React, { useReducer } from "react";
 import ReservationContainer from "../components/ClassReservation/ReservationContainer";
-import ResNavContext from "../components/ClassReservation/contexts/resNavContext";
-import reservationReducer from "../components/ClassReservation/reducers/reservationReducer";
+import ResNavContext from "./contexts/resNavContext";
+import reservationReducer from "./reducers/reservationReducer";
 import EvaluationContainer from "../components/Evaluation/EvaluationContainer";
 import Footer from "../components/Footer";
 import HamburgerMenu from "../components/HamburgerMenu";
@@ -15,8 +15,8 @@ const layout = ({ children }: { children: React.ReactNode }) => {
       <main className="bg-[#F8F8FB] w-full overflow-x-hidden">
         <Navbar></Navbar>
         <HamburgerMenu></HamburgerMenu>
-        <EvaluationContainer show={true} />
-        <ReservationContainer show={false} />
+        <EvaluationContainer show={false} />
+        <ReservationContainer show={true} />
         {children}
         <Footer></Footer>
       </main>

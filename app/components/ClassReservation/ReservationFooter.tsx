@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import Button from "../Button";
-import ResNavContext from "./contexts/resNavContext";
+import ResNavContext from "../../group-class/contexts/resNavContext";
 
 const ReservationFooter = () => {
   const { step, dispatch } = useContext(ResNavContext);

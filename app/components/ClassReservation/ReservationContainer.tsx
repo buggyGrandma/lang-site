@@ -1,5 +1,5 @@
 "use client";
-import ResNavContext from "@/app/components/ClassReservation/contexts/resNavContext";
+import ResNavContext from "@/app/group-class/contexts/resNavContext";
 import { useContext, useRef } from "react";
 import CompleteInfo from "./CompleteInfo/CompleteInfo";
 import PayCheck from "./PayCheck/PayCheck";

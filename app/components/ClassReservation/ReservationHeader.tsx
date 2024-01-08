@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import ReservationNav from "./ReservationNav";
 import CloseButton from "./CompleteInfo/components/DataSelect/CloseButton";
 import MobileCloseButton from "./CompleteInfo/components/DataSelect/MobileCloseButton";
-import ResNavContext from "./contexts/resNavContext";
+import ResNavContext from "../../group-class/contexts/resNavContext";
 
 const ReservationHeader = () => {
   const { step } = useContext(ResNavContext);

@@ -1,4 +1,4 @@
-import ResNavContext from "@/app/components/ClassReservation/contexts/resNavContext";
+import ResNavContext from "@/app/group-class/contexts/resNavContext";
 import DateSelect from "./components/DataSelect";
 import Book from "./components/Book";
 import React, { useContext, useState } from "react";
