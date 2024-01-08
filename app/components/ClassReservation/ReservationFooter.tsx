@@ -44,7 +44,7 @@ const ReservationFooter = () => {
               direction="right"
               color="outline"
             >
-              <p>مرحله ثبل</p>
+              <p className=" text-[12px] font-normal">مرحله قبل</p>
             </Button>
           )}
           <Button

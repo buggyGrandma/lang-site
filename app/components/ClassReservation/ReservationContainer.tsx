@@ -20,9 +20,9 @@ const ReservationContainer = ({ show }: Props) => {
       ref={ref}
       className={`${
         !show && "hidden"
-      } absolute  left-[50%] translate-x-[-50%] top-10 h-full overflow-x-scroll w-full z-20`}
+      } fixed  left-[50%] translate-x-[-50%] top-0 h-full overflow-y-scroll  w-full z-20`}
     >
-      <div dir="rtl" className="md:pt-[56px] bg-black bg-opacity-0 h-fit">
+      <div dir="rtl" className="md:pt-[56px] h-full bg-black bg-opacity-10 ">
         <ReservationHeader />
         <div className="p-4 gap-4 flex flex-col justify-center items-center bg-white h-fit">
           {step === "completeInfo" ? (

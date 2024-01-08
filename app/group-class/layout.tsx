@@ -16,7 +16,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
         <Navbar></Navbar>
         <HamburgerMenu></HamburgerMenu>
         <EvaluationContainer show={true} />
-        <ReservationContainer show={true} />
+        <ReservationContainer show={false} />
         {children}
         <Footer></Footer>
       </main>

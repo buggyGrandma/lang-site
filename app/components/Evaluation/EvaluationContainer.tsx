@@ -1,22 +1,21 @@
 "use client";
 import CloseIcon from "./assets/Close";
 import EvaluationContent from "./EvaluationContent";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import EvaluationExam from "./EvaluationExam";
-
-// const IRANSans = localFont({
-//   src: "../../assets/fonts/FontsFree-Net-ir_sans.ttf ",
-// });
 
 const EvaluationContainer = ({ show }: { show: boolean }) => {
   const [page, setPage] = useState<"start" | "exam">("start");
+  const ref = useRef<HTMLDivElement>(null);
+  ref.current && ref.current.focus();
   return (
     <div
+      ref={ref}
       className={`${
         !show && "hidden"
-      } absolute  left-[50%] translate-x-[-50%] top-10 h-fit w-full z-20`}
+      } fixed  left-[50%] translate-x-[-50%] top-0 overflow-y-scroll h-full w-full z-20`}
     >
-      <div dir="rtl" className="md:pt-[56px] bg-black bg-opacity-0 h-fit">
+      <div dir="rtl" className="md:pt-[56px] bg-black bg-opacity-10 h-fit">
         <div className="border-b h-[64px] md:h-[91px] md:px-[172px] flex items-center gap-[8px] md:gap-[12px] w-full bg-white md:rounded-t-[24px]">
           <div className="p-[8px] rounded-full md:bg-[#F2F2F2]">
             <CloseIcon />
