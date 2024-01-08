@@ -6,20 +6,19 @@ import PayCheck from "./PayCheck/PayCheck";
 import Register from "./Register/Register";
 import ReservationFooter from "./ReservationFooter";
 import ReservationHeader from "./ReservationHeader";
+import ModalsContext from "@/app/group-class/contexts/modalsContext";
 
-interface Props {
-  show: boolean;
-  // checkPoint: "register" | "completeInfo" | "check";
-}
-const ReservationContainer = ({ show }: Props) => {
+const ReservationContainer = () => {
   const { step } = useContext(ResNavContext);
   const ref = useRef<HTMLDivElement>(null);
   ref.current && ref.current.focus();
+  const { modals } = useContext(ModalsContext);
+
   return (
     <div
       ref={ref}
       className={`${
-        !show && "hidden"
+        !modals.classReservation && "hidden"
       } fixed  left-[50%] translate-x-[-50%] top-0 h-full overflow-y-scroll  w-full z-20`}
     >
       <div dir="rtl" className="md:pt-[56px] h-full bg-black bg-opacity-10 ">
