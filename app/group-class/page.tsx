@@ -1,5 +1,3 @@
-"use client";
-import { useState } from "react";
 //next
 import Image from "next/image";
 import Link from "next/link";
@@ -26,17 +24,10 @@ import GreenCircleRight from "@/public/images/titleIcons/GreenCircleRight";
 import HeartCommentIcon from "@/public/images/titleIcons/HeartCommentIcon";
 import SmsCommentIcon from "@/public/images/titleIcons/SmsCommentIcon";
 import YellowCircle from "@/public/images/titleIcons/YellowCircle";
-import ReservationContainer from "../components/ClassReservation/ReservationContainer";
-import EvaluationContainer from "../components/Evaluation/EvaluationContainer";
 
 const groupClass = () => {
-  const [evaluation, setEvaluation] = useState<boolean>(false);
-  const [classReserve, setClassReserve] = useState<boolean>(true);
   return (
     <>
-      <EvaluationContainer show={evaluation} />
-      <ReservationContainer show={classReserve} checkPoint="check" />
-
       <Introduction></Introduction>
       <div className=" w-full relative z-10 mt-16 lg-max:mt-6">
         <section id="courses" className=" relative z-20">
