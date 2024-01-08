@@ -2,23 +2,49 @@
 import React, { useState } from "react";
 import commaIcon from "@/public/images/userCommentSlider/comma.svg";
 import Image from "next/image";
+import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
+
+interface Comments {
+  name: string;
+  comment: string;
+}
+
 const UserCommentSlider: React.FC = () => {
+  const {
+    data: courses,
+    error,
+    isLoading,
+  } = useQuery<Comments[]>({
+    queryKey: ["courses"],
+    queryFn: () =>
+      axios
+        .get("https://api.hamyarzaban.com/api/v1/Term/GetTerms")
+        .then((res) => res.data),
+  });
+  console.log(courses?.comments[0].name);
   const [activeIndex, setActiveIndex] = useState(0);
-  const comments = [
+  // if(isLoading) {
+  //   return <div className='text-blue-800'>is loading</div>;
+  // }
+  // if (error) {
+  //   return <div>Error: {error.message}</div>;
+  // }
+
+  const commentsArr = [
     <div
       key={0}
       className="w-full p-8 flex flex-col gap-y-4 shadow-whiteCustom"
     >
       <div className="flex justify-end items-center  gap-x-20">
         <h3 className="text-black text-base font-medium font-iranSans text-center">
-          فرزاد باغبان زاده
+          {courses?.comments[0].name}
         </h3>
         <Image src={commaIcon} alt="comma icon" width={60}></Image>
       </div>
       <div className="py-4 px-8">
         <p className="text-[#818181] text-sm leading-6 font-iranSans font-normal text-center ">
-          اساتید به شدت با تجربه و مسلط هستند . با وجود گروهی بودن کلاس ها، به
-          روند پیشرفت هر زبان آموز اهمیت زیادی داده میشود.
+          {courses?.comments[0].comment}
         </p>
       </div>
     </div>,
@@ -28,14 +54,13 @@ const UserCommentSlider: React.FC = () => {
     >
       <div className="flex justify-end items-center  gap-x-20">
         <h3 className="text-black text-base font-medium font-iranSans text-center">
-          زهرا کیانی
+          {courses?.comments[1].name}
         </h3>
         <Image src={commaIcon} alt="comma icon" width={60}></Image>
       </div>
       <div className="py-4 px-8">
         <p className="text-[#818181] text-sm leading-6 font-iranSans font-normal text-center ">
-          از بچگی تا الان که 25 سالمه خیلی کلاس های مختلف رو امتحان کردم ولی به
-          جرات میگم که تا الان کلاس آنلاینی با این کیفیت ندیدم و خیلی راضی هستم.
+          {courses?.comments[1].comment}
         </p>
       </div>
     </div>,
@@ -45,33 +70,32 @@ const UserCommentSlider: React.FC = () => {
     >
       <div className="flex justify-end items-center  gap-x-20">
         <h3 className="text-black text-base font-medium font-iranSans text-center">
-          نیروانا زندی
+          {courses?.comments[2].name}
         </h3>
         <Image src={commaIcon} alt="comma icon" width={60}></Image>
       </div>
       <div className="py-4 px-8">
         <p className="text-[#818181] text-sm leading-6 font-iranSans font-normal text-center ">
-          تعامل در کلاس ها باعث میشه مطالب رو بهتر یادبگیریم و کلاس خسته کننده
-          نباشه. ممنونم از تیم همیارزبان و استاد خوبم.{" "}
+          {courses?.comments[2].comment}
         </p>
       </div>
     </div>,
   ];
 
   const nextComment = () => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % comments.length);
+    setActiveIndex((prevIndex) => (prevIndex + 1) % commentsArr.length);
   };
 
   const prevComment = () => {
     setActiveIndex(
-      (prevIndex) => (prevIndex - 1 + comments.length) % comments.length
+      (prevIndex) => (prevIndex - 1 + commentsArr.length) % commentsArr.length
     );
   };
 
   return (
     <div className="relative">
       <div className="text-center w-[28rem] lg-max:w-[91%] mx-auto bg-[#FAFAFA] lg-max:bg-white lg-max:rounded-[10px] mt-4 rounded-xl">
-        {comments[activeIndex]}
+        {commentsArr[activeIndex]}
       </div>
       <div className="flex w-full justify-center items-center gap-x-2 space-x-2">
         <button
@@ -94,7 +118,7 @@ const UserCommentSlider: React.FC = () => {
             />
           </svg>
         </button>
-        {comments.map((_, index) => (
+        {commentsArr.map((_, index) => (
           <div
             key={index}
             className={`w-10 h-1 mt-10 lg-max:mt-4 mx-auto rounded-[29px] ${
