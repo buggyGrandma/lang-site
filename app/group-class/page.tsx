@@ -1,48 +1,33 @@
 "use client";
-import React, { useState } from "react";
-import Navbar from "../components/Navbar";
+import { useState } from "react";
 //next
-import Link from "next/link";
 import Image from "next/image";
-//components
-import Introduction from "./Introduction";
-import CourseLevelDetail from "./courses/CourseLevelDetail";
-import RoadmapCard from "./RoadmapCard";
-import AdvantageCard from "./AdvantageCard";
-import UserCommentSlider from "./UserCommentSlider";
-import Faq from "./Faq";
-import DescriptionText from "./DescriptionText";
-import Button from "../components/Button";
-import QuickAccess from "./QuickAccess";
-//images and icons
-import roadMap from "@/public/images/roadmap/road-map.png";
-import roadMapMobile from "@/public/images/roadmap/road-map-mobile.png";
-import circleTitleIcon from "@/public/images/titleIcons/circle.svg";
-import greenCircleLeft from "@/public/images/titleIcons/green-circle-left.svg";
-import greenCircleRight from "@/public/images/titleIcons/green-circle-right.svg";
-import yellowCircle from "@/public/images/titleIcons/yellow-circle.svg";
-import heartCommentIcon from "@/public/images/titleIcons/heart.svg";
-import smsCommentIcon from "@/public/images/titleIcons/sms.svg";
-import DescriptionText from "./DescriptionText";
-import Footer from "../components/Footer";
-import Button from "../components/Button";
-import UserCommentSlider from "./UserCommentSlider";
 import Link from "next/link";
+//components
+import Button from "../components/Button";
+import AdvantageCard from "./AdvantageCard";
+import DescriptionText from "./DescriptionText";
 import Faq from "./Faq";
-import CourseLevelDetail from "./CourseLevelDetail";
-import HamburgerMenu from "../components/HamburgerMenu";
-import EvaluationContainer from "../components/Evaluation/EvaluationContainer";
-import ReservationContainer from "../components/ClassReservation/ReservationContainer";
+import Introduction from "./Introduction";
+import QuickAccess from "./QuickAccess";
+import RoadmapCard from "./RoadmapCard";
+import UserCommentSlider from "./UserCommentSlider";
+import CourseLevelDetail from "./courses/CourseLevelDetail";
+//images and icons
+import DgreeIcon from "@/public/images/advantageCards/DgreeIcon";
+import LevelIcon from "@/public/images/advantageCards/LevelIcon";
+import OnlineClassIcon from "@/public/images/advantageCards/OnlineClassIcon";
+import TeachersIcon from "@/public/images/advantageCards/TeachersIcon";
+import roadMapMobile from "@/public/images/roadmap/road-map-mobile.png";
+import roadMap from "@/public/images/roadmap/road-map.png";
 import CircleIcon from "@/public/images/titleIcons/CircleIcon";
 import GreenCircleLeft from "@/public/images/titleIcons/GreenCircleLeft";
 import GreenCircleRight from "@/public/images/titleIcons/GreenCircleRight";
-import YellowCircle from "@/public/images/titleIcons/YellowCircle";
-import SmsCommentIcon from "@/public/images/titleIcons/SmsCommentIcon";
 import HeartCommentIcon from "@/public/images/titleIcons/HeartCommentIcon";
-import TeachersIcon from "@/public/images/advantageCards/TeachersIcon";
-import LevelIcon from "@/public/images/advantageCards/LevelIcon";
-import OnlineClassIcon from "@/public/images/advantageCards/OnlineClassIcon";
-import DgreeIcon from "@/public/images/advantageCards/DgreeIcon";
+import SmsCommentIcon from "@/public/images/titleIcons/SmsCommentIcon";
+import YellowCircle from "@/public/images/titleIcons/YellowCircle";
+import ReservationContainer from "../components/ClassReservation/ReservationContainer";
+import EvaluationContainer from "../components/Evaluation/EvaluationContainer";
 
 const groupClass = () => {
   const [evaluation, setEvaluation] = useState<boolean>(false);
