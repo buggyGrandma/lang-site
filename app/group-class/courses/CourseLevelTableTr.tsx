@@ -51,7 +51,7 @@ const CourseLevelTableTr: React.FC<CourseLevelTableTrProps> = ({
         <td className="text-[#282828] text-sm py-4">{price} تومان</td>
         <td className="text-[#282828] text-sm py-4 flex justify-center items-center">
           <div className="w-[140px] h-8">
-            <Button color={colorVariant} buttonAction={buttonAction}>
+            <Button color={colorVariant}>
               <p className="text-[0.85rem]">{status}</p>
             </Button>
           </div>

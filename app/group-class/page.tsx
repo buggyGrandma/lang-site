@@ -81,7 +81,16 @@ const groupClass = () => {
               level={"Basic"}
               term={""}
               bgColor={""}
-              textColor="[#509CF9]"
+              textColor="text-[#509CF9]"
+              borderColor={"border-[#509CF9]"}
+            ></RoadmapCard>
+            <RoadmapCard
+              title={"مبتدی"}
+              level={"Elementary"}
+              term={""}
+              bgColor={""}
+              textColor={"text-[#ff6060]"}
+              borderColor={"border-[#ff6060]"}
             ></RoadmapCard>
             <RoadmapCard
               title={"مبتدی"}
@@ -89,6 +98,7 @@ const groupClass = () => {
               term={""}
               bgColor={""}
               textColor={"[#ff6060]"}
+              borderColor={"border-[#ff6060]"}
             ></RoadmapCard>
             <RoadmapCard
               title={"مبتدی"}
@@ -96,6 +106,7 @@ const groupClass = () => {
               term={""}
               bgColor={""}
               textColor={"[#ff6060]"}
+              borderColor={""}
             ></RoadmapCard>
             <RoadmapCard
               title={"مبتدی"}
@@ -103,6 +114,7 @@ const groupClass = () => {
               term={""}
               bgColor={""}
               textColor={"[#ff6060]"}
+              borderColor={""}
             ></RoadmapCard>
             <RoadmapCard
               title={"مبتدی"}
@@ -110,13 +122,7 @@ const groupClass = () => {
               term={""}
               bgColor={""}
               textColor={"[#ff6060]"}
-            ></RoadmapCard>
-            <RoadmapCard
-              title={"مبتدی"}
-              level={"Elementary"}
-              term={""}
-              bgColor={""}
-              textColor={"[#ff6060]"}
+              borderColor={""}
             ></RoadmapCard>
             {/* <RoadmapCard></RoadmapCard>
             <RoadmapCard></RoadmapCard>

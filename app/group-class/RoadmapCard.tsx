@@ -5,6 +5,7 @@ interface RoadmapCardProps {
   level: string;
   term: string;
   bgColor: string;
+  borderColor: string;
   textColor: string;
 }
 
@@ -13,12 +14,15 @@ const RoadmapCard: React.FC<RoadmapCardProps> = ({
   level,
   term,
   textColor,
+  borderColor,
   bgColor,
 }) => {
+  const color = `text-${textColor}`;
+  const border = `border-${textColor}`;
   return (
     <div className="flex flex-col w-[31%] lg-max:w-full bg-white/60 rounded-[20px] backdrop-blur-[49.5px] border border-[#0051b5]/[0.13] pb-7 pl-4">
       <div className="flex justify-center items-center mx-auto bg-[#E9F0F8] py-2 px-8 w-[6.5rem] rounded-b-[10px] ">
-        <p className={`text-sm text-${textColor} font-medium text-center`}>
+        <p className={`text-sm ${textColor} font-medium text-center`}>
           {title}
         </p>
       </div>
@@ -29,9 +33,9 @@ const RoadmapCard: React.FC<RoadmapCardProps> = ({
           </h3>
           <div className="flex justify-center items-center">
             <div
-              className={`border-${textColor}/[0.19] py-2 px-4 w-[4rem] h-[2rem] border rounded-[39px]`}
+              className={`${borderColor}/[0.19] py-2 px-4 w-[4rem] h-[2rem] border rounded-[39px]`}
             >
-              <p className={`text-${textColor} text-xs font-medium`}>4 ترم</p>
+              <p className={`${textColor} text-xs font-medium`}>4 ترم</p>
             </div>
             <div className="md:hidden">
               <p className="text-[#818181] font-roboto text-sm font-bold ">
