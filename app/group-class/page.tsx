@@ -37,10 +37,11 @@ const groupClass = () => {
   const [classReserve, setClassReserve] = useState<boolean>(true);
   return (
     <main className="bg-[#F8F8FB] w-full overflow-x-hidden">
-      <Navbar></Navbar>
-      <HamburgerMenu></HamburgerMenu>
       <EvaluationContainer show={evaluation} />
       <ReservationContainer show={classReserve} checkPoint="check" />
+      <Navbar></Navbar>
+      <HamburgerMenu></HamburgerMenu>
+
       <section className="w-full  bg-[#212121] relative pb-4">
         <div className="absolute left-0 top-[-9.5rem]">
           <Image

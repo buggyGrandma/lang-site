@@ -2,7 +2,7 @@ import ReservationFooter from "./ReservationFooter";
 import ReservationHeader from "./ReservationHeader";
 import ResNavContext from "@/app/components/ClassReservation/contexts/resNavContext";
 import reservationReducer from "@/app/components/ClassReservation/reducers/reservationReducer";
-import { useReducer } from "react";
+import { useReducer, useRef } from "react";
 import Register from "./Register/Register";
 import CompleteInfo from "./CompleteInfo/CompleteInfo";
 import PayCheck from "./PayCheck/PayCheck";
@@ -13,12 +13,14 @@ interface Props {
 }
 const ReservationContainer = ({ show, checkPoint }: Props) => {
   const [step, dispatch] = useReducer(reservationReducer, "completeInfo");
-
+  const ref = useRef<HTMLDivElement>(null);
+  ref.current && ref.current.focus();
   return (
     <div
+      ref={ref}
       className={`${
         !show && "hidden"
-      } absolute  left-[50%] translate-x-[-50%] top-10 h-fit w-full z-20`}
+      } absolute  left-[50%] translate-x-[-50%] top-10 h-full overflow-x-scroll w-full z-20`}
     >
       <ResNavContext.Provider value={{ step, dispatch }}>
         <div dir="rtl" className="md:pt-[56px] bg-black bg-opacity-0 h-fit">
