@@ -18,7 +18,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
       <ModalsContext.Provider value={{ modals, modalsDispatch }}>
         <main className="bg-[#F8F8FB] w-full overflow-x-hidden">
           <Navbar></Navbar>
-          <HamburgerMenu></HamburgerMenu>
+          {/* <HamburgerMenu></HamburgerMenu> */}
           <EvaluationContainer />
           <ReservationContainer />
           {children}
