@@ -8,7 +8,7 @@ const nextConfig = {
       {
         source: "/",
         destination: "/group-class",
-        permanent: true,
+        permanent: false,
       },
     ];
   },
